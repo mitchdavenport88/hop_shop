@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --black: #000;
+    --white: #FAFAFA;
+    --pale-grey: #E6E6E6;
+    --mid-blue: #1A759F;
+    --turquoise-blue: #34A0A4;
+    --dark-blue: #061A40;
+}
+
+body {
+    background-color: var(--pale-grey);
+    overflow-y: scroll;
+}
+
+/*** base.html - navigation ***/
+
+#banner {
+    background: var(--mid-blue);
+    color: var(--white);
+} 
+
+.banner-content p {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+}
+
+.my-navbar {
+    background: var(--dark-blue);
+    border-bottom: 1px solid var(--mid-blue);
+}
+
+.my-navbar a {
+    color: var(--white);
+}
+
+.my-logo {
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    margin: 0 0 0 1rem;
+    padding: 10px 0;
+    line-height: 40px;
+}
+
+.nav-link-logo {
+    font-size: 1.5rem;
+}
+
+.my-icons {
+    list-style: none;
+    text-align: right;
+    margin: 0 10px 0 0;
+}
+
+/*** buttons ***/
+
+.search-btn {
+    background-color: var(--mid-blue);
+    border: 1px solid var(--mid-blue);
+    color: var(--white);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.search-btn:hover {
+    background-color: var(--white);
+    border: 1px solid var(--mid-blue);
+    color: var(--mid-blue);
+}
+
+    
