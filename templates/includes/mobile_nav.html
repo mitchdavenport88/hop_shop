@@ -1,0 +1,67 @@
+<ul class="my-auto">
+    <!-- search -->
+    <li class="list-inline-item">
+        <a class="nav-link nav-link-logo d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <div class="text-center">
+                <div>
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </a>
+        <div class="dropdown-menu col-12 p-3 rounded-0 my-auto mobile-search" aria-labelledby="mobile-search">
+            <form method="GET" action="">
+                <div class="input-group w-100">
+                    <input type="text" class="form-control" placeholder="search our site..."  name="query">
+                    <button class="btn search-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </li>
+    <!-- user logic -->
+    <li class="list-inline-item dropdown">
+        <a class="nav-link nav-link-logo d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <div class="text-center">
+                <div>
+                    <i class="far fa-user"></i>
+                </div>
+            </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-box" aria-labelledby="user-options">
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="" class="dropdown-item">Manage Products</a>
+                {% endif %}
+                <a href="" class="dropdown-item">Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            {% else %}
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            {% endif %}
+        </div>
+    </li>
+    <!-- wishlist logic -->
+    <li class="list-inline-item">
+        <a class="nav-link nav-link-logo d-block d-lg-none" href="#">
+            <div class="text-center">
+                <div>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- cart logic -->
+    <li class="list-inline-item">
+        <a class="nav-link nav-link-logo d-block d-lg-none" href="#">
+            <div class="text-center">
+                <div>
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+

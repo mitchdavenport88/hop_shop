@@ -39,16 +39,16 @@
     <header class="container-fluid fixed-top">
         <!-- banner -->
         <div id="banner" class="row text-center">
-            <div class="col-12 col-lg-6 banner-content">
+            <div class="d-none d-lg-block col-lg-6 banner-content">
                 <p class="my-2">Order before 3pm (mon-fri) for next day delivery.</p>                
             </div>            
-            <div class="d-none d-lg-block col-lg-6 banner-content">
-                <p class="my-2">Spend £30 for free delivery.</p>                
+            <div class="col-12 col-lg-6 banner-content">
+                <p class="my-2">Spend £30 for next day free delivery.</p>                
             </div>            
         </div>
 
         <!-- logo / searchbar / icons -->
-        <div class="row my-navbar">
+        <div class="row my-navbar d-none d-lg-flex">
             <!-- logo -->
             <div class="col-12 col-lg-4">
                 <a class="navbar-brand my-logo" href="{% url 'home' %}">
@@ -69,22 +69,35 @@
             <!-- account / shopping bag / wishlist  -->
             <div class="col-12 col-lg-4 my-auto">
                 <ul class="list-inline my-icons my-0">
+                    <!-- user logic (dropdown) -->
+                    <li class="list-inline-item dropdown">
+                        <a class="nav-link nav-link-logo" href="#" id="user-options" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div>
+                                    <i class="far fa-user"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-box" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Manage Products</a>
+                                {% endif %}
+                                <a href="" class="dropdown-item">Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
                     <!-- wishlist logic -->
                     <li class="list-inline-item">
                         <a class="nav-link nav-link-logo" href="#">
                             <div class="text-center">
                                 <div>
                                     <i class="fas fa-heart"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- user logic (dropdown) -->
-                    <li class="list-inline-item">
-                        <a class="nav-link nav-link-logo" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div>
-                                    <i class="far fa-user"></i>
                                 </div>
                             </div>
                         </a>
@@ -102,18 +115,21 @@
                 </ul>
             </div>
         </div>
-    </header>
 
-        <!-- main site navigation
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <!-- main-nav -->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg w-100 my-navbar py-1">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span>
+                        <i class="fas fa-bars"></i>
+                    </span>
                 </button>
-                include 'includes/mobile-top-header.html
-                include 'includes/main-nav.html
+                {% include 'includes/main_nav.html' %}
+                {% include 'includes/mobile_nav.html' %}
             </nav>
-        </div> -->
+        </div>
+    </header>
 
     {% if messages %}
         <div class="message-container"></div>

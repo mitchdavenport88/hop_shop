@@ -33,7 +33,7 @@ body {
 
 .my-navbar {
     background: var(--dark-blue);
-    border-bottom: 1px solid var(--mid-blue);
+    padding-bottom: 0;
 }
 
 .my-navbar a {
@@ -51,14 +51,47 @@ body {
     line-height: 40px;
 }
 
-.nav-link-logo {
-    font-size: 1.5rem;
-}
-
 .my-icons {
     list-style: none;
     text-align: right;
     margin: 0 10px 0 0;
+}
+
+.nav-link-logo {
+    font-size: 1.5rem;
+}
+
+.nav-item a {
+    margin: 0 2rem;
+}
+
+.nav-link-logo:hover,
+.nav-item a:hover {
+    color: var(--mid-blue);
+}
+
+.navbar-toggler {
+    font-size: 1.5rem;
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.dropdown-menu-box {
+    background: var(--mid-blue);
+    text-align: center;
+}
+
+.dropdown-menu-box a {
+    margin: 0;
+}
+
+.dropdown-menu-box a:hover {
+    background: none;
+    color: var(--dark-blue);
+}
+
+.mobile-search {
+    background: var(--dark-blue);
 }
 
 /*** buttons ***/
@@ -77,4 +110,32 @@ body {
     color: var(--mid-blue);
 }
 
-    
+/*** content containers ***/
+
+.content-spacer {
+    height: 185px;
+}
+
+/*** media queries ***/
+
+/* - lg */
+@media only screen and (max-width: 991px) {  
+    #main-nav {
+        position: absolute;
+        top: 59px;
+        background: var(--dark-blue);
+        width: 100vw;
+        left: 0;
+        text-align: center;
+    }
+    .content-spacer {
+        height: 89px; 
+    }
+}
+
+/* lg &+ */
+@media only screen and (min-width: 992px) {  
+    #main-nav {
+        margin-left: 36px;
+    }
+}
