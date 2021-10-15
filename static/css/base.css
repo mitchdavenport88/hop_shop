@@ -94,6 +94,35 @@ body {
     background: var(--dark-blue);
 }
 
+/* positions container so that content doesn't clash
+with navbar & sticks the footer to page bottom */
+.content-container {
+    min-height: calc(100vh - 60px);
+    padding-top: 185px;
+}
+
+/*** base.html - footer ***/
+
+#footer {
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 2.5%;
+    height: 60px;
+}
+
+#footer a {
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+#footer a:hover {
+    color: var(--mid-blue);
+}
+
 /*** buttons ***/
 
 .search-btn {
@@ -110,12 +139,6 @@ body {
     color: var(--mid-blue);
 }
 
-/*** content containers ***/
-
-.content-spacer {
-    height: 185px;
-}
-
 /*** media queries ***/
 
 /* - lg */
@@ -128,8 +151,8 @@ body {
         left: 0;
         text-align: center;
     }
-    .content-spacer {
-        height: 89px; 
+    .content-container {
+        padding-top: 89px;
     }
 }
 
