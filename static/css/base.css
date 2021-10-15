@@ -34,6 +34,7 @@ body {
 .my-navbar {
     background: var(--dark-blue);
     padding-bottom: 0;
+    min-height: 60px;
 }
 
 .my-navbar a {
@@ -98,7 +99,13 @@ body {
 with navbar & sticks the footer to page bottom */
 .content-container {
     min-height: calc(100vh - 60px);
-    padding-top: 185px;
+    padding-top: 197px;
+}
+
+.container-fluid,
+#footer {
+    max-width: 2000px;
+    margin: 0 auto;
 }
 
 /*** base.html - footer ***/
@@ -194,22 +201,30 @@ with navbar & sticks the footer to page bottom */
 
 /*** media queries ***/
 
-/* - lg */
+/* max-width sm */
+@media only screen and (max-width: 575px) {
+    .nav-link-logo {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+}
+
+/* max-width lg */
 @media only screen and (max-width: 991px) {  
     #main-nav {
         position: absolute;
-        top: 59px;
+        top: 60px;
         background: var(--dark-blue);
         width: 100vw;
         left: 0;
         text-align: center;
     }
     .content-container {
-        padding-top: 89px;
+        padding-top: 97px;
     }
 }
 
-/* lg &+ */
+/* min-width lg */
 @media only screen and (min-width: 992px) {  
     #main-nav {
         margin-left: 36px;
