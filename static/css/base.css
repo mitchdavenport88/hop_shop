@@ -8,7 +8,7 @@
 :root {
     --black: #000;
     --white: #FAFAFA;
-    --pale-grey: #E6E6E6;
+    --pale-grey: #e6e6e6;
     --mid-blue: #1A759F;
     --turquoise-blue: #34A0A4;
     --dark-blue: #061A40;
@@ -123,6 +123,50 @@ with navbar & sticks the footer to page bottom */
     color: var(--mid-blue);
 }
 
+/*** home/index.html ***/
+
+.hero-image {
+    height: 68vh;
+    background: url("/media/hopshop-hero-image.jpg") no-repeat center;
+    background-size: cover;
+    padding: 0;
+}
+
+.hero-image-overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-content {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2%;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.hero-image-quote {
+    color: var(--dark-blue);
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    margin-bottom: 15px;
+}
+
+/* .page-title {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--dark-blue);
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+} */
+
 /*** buttons ***/
 
 .search-btn {
@@ -133,7 +177,16 @@ with navbar & sticks the footer to page bottom */
     border-bottom-left-radius: 0;
 }
 
-.search-btn:hover {
+.my-btn {
+    background-color: var(--mid-blue);
+    border: 1px solid var(--mid-blue);
+    color: var(--white);
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
+
+.search-btn:hover,
+.my-btn:hover {
     background-color: var(--white);
     border: 1px solid var(--mid-blue);
     color: var(--mid-blue);
