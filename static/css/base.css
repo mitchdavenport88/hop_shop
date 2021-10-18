@@ -164,15 +164,44 @@ with navbar & sticks the footer to page bottom */
     margin-bottom: 15px;
 }
 
-/* .page-title {
-    margin-bottom: 20px;
-    padding-top: 10px;
+/*** reusable classes ***/
+
+.page-title {
+    margin-bottom: 30px;
+    padding-top: 15px;
     text-align: center;
     font-size: 2rem;
     color: var(--dark-blue);
     font-weight: bold;
     letter-spacing: 0.2rem;
-} */
+}
+
+/*** products/products.html ***/
+
+.card-group {
+    margin-bottom: 30px;
+    color: var(--white);
+}
+
+.card {
+    border: 1px solid var(--dark-blue);
+    background-color: var(--dark-blue);
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-body {
+    padding: 0.75rem 0.5rem;
+}
+
+.card-img,
+.card-img-top {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
 /*** buttons ***/
 

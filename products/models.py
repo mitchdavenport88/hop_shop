@@ -39,7 +39,7 @@ class Product(models.Model):
                                  on_delete=models.SET_NULL)
     country = models.ForeignKey('Country', null=True, blank=True,
                                 on_delete=models.SET_NULL)
-    abv = models.DecimalField(max_digits=4, decimal_places=2)
+    abv = models.DecimalField(max_digits=3, decimal_places=1)
     size = models.IntegerField()
     price = models.DecimalField(max_digits=4, decimal_places=2)
     image = models.ImageField(null=True, blank=True)
