@@ -15,17 +15,30 @@
                     {% for product in products %}
                         <div class="col-12 col-md-6 col-lg-4 col-xl-3 card-group">
                             <div class="card">
-                                <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">          
+                                <!-- product image -->
+                                {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
                                 <div class="card-body">
+                                    <!-- product name -->
                                     <h5 class="card-title text-center">{{ product.name }}</h5>
+                                    <!-- product category / abv / country -->
                                     <p class="card-text text-center">
                                         {{ product.category.friendly_name }}  |  {{ product.abv }}%  |  {{ product.country.friendly_name }}
                                     </p>
+                                    <!-- product price -->
                                     <h5 class="card-title text-center"><b>£{{ product.price }}</b></h5>
+                                    <!-- buttons -->
                                     <div class="d-flex flex-wrap justify-content-center">
-                                        <a href="#" class="btn my-btn m-2">
+                                        <!-- <a href="{% url 'product_detail' product.id %}" class="btn my-btn m-2">
                                             about
-                                        </a>
+                                        </a> -->
                                         <a href="#" class="btn my-btn m-2">
                                             add to cart
                                         </a>

@@ -195,12 +195,42 @@ with navbar & sticks the footer to page bottom */
     padding: 0.75rem 0.5rem;
 }
 
-.card-img,
 .card-img-top {
-    height: 400px;
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+/*** products/product_detail.html ***/
+
+.product-detail-card {
+    border: 1px solid var(--dark-blue);
+    border-radius: .25rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    background: var(--dark-blue);
+}
+
+.product-detail-image-col {
+    padding: 0;
+}
+
+.product-detail-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.product-detail-col {
+    color: var(--white);
+    padding: 20px;
+    letter-spacing: 0.05rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /*** buttons ***/
@@ -235,6 +265,9 @@ with navbar & sticks the footer to page bottom */
     .nav-link-logo {
         font-size: 1.2rem;
         padding: 0.5rem;
+    }
+    .product-detail-image {
+        height: 500px;
     }
 }
 

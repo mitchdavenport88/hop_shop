@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- page header -->
+        <div class="row">
+            <div class="col">
+                <h1 class="page-title">{{ product.name }} ({{ product.size }}ml)</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <div class="row product-detail-card">
+                    <!-- product image -->
+                    <div class="col-12 col-sm-5 product-detail-image-col">
+                        {% if product.image %}
+                            <a href="{{ product.image.url }}" target="_blank">
+                                <img class="product-detail-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{{ MEDIA_URL }}noimage.jpg" target="_blank">
+                                <img class="product-detail-image" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-12 col-sm-7 product-detail-col">
+                        <!-- product category / abv / country -->
+                        <p class="card-text text-center">
+                            {{ product.category.friendly_name }}  |  {{ product.abv }}%  |  {{ product.country.friendly_name }}
+                        </p>
+                        <!-- product desc -->
+                        <p class="text-center">
+                            {{ product.description }}
+                        </p>
+                        <!-- product price -->
+                        <h5 class="card-title text-center"><b>£{{ product.price }}</b></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
