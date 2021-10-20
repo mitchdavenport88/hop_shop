@@ -1,21 +1,48 @@
 <div id="main-nav" class="collapse navbar-collapse">
     <ul class="navbar-nav w-auto mx-auto">
+        <!-- home -->
         <li class="nav-item">
             <a class="font-weight-bold nav-link" href="{% url 'home' %}">
                 Home
             </a>
         </li>
+        <!-- all -->
         <li class="nav-item dropdown">
             <a class="font-weight-bold nav-link" href="#" id="shop-link" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Shop
+                All Beers
             </a>
             <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
-                <a href="{% url 'products' %}" class="dropdown-item">All</a>
-                <a href="" class="dropdown-item">By Style</a>
-                <a href="" class="dropdown-item">By Country</a>
+                <a href="" class="dropdown-item">By Price</a>
+                <a href="" class="dropdown-item">By ABV%</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Beers</a>
             </div>
         </li>
+        <!-- by style -->
+        <li class="nav-item dropdown">
+            <a class="font-weight-bold nav-link" href="#" id="shop-link" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Beers by Style
+            </a>
+            <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
+                <a href="" class="dropdown-item">Style1</a>
+                <a href="" class="dropdown-item">Style2</a>
+            </div>
+        </li>
+        <!-- by country -->
+        <li class="nav-item dropdown">
+            <a class="font-weight-bold nav-link" href="#" id="shop-link" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Beers by Country
+            </a>
+            <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
+                <a href="" class="dropdown-item">Country1</a>
+                <a href="" class="dropdown-item">Country2</a>
+                <a href="" class="dropdown-item">Country3</a>
+                <a href="" class="dropdown-item">Country4</a>
+            </div>
+        </li>
+        <!-- blog -->
         <li class="nav-item">
             <a class="font-weight-bold nav-link" href="#">
                 Blog
