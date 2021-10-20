@@ -6,12 +6,23 @@ from .models import Product
 
 def all_products(request):
     """ A view to show all products """
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('name')
     query = None
     category = None
     country = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
         if 'category' in request.GET:
             category = request.GET['category']
             products = products.filter(category__name=category)
@@ -32,10 +43,13 @@ def all_products(request):
                     country__name__icontains=query) | Q(
                         category__friendly_name__icontains=query)
             products = products.filter(queries)
+        
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_query': query,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)

@@ -167,7 +167,7 @@ with navbar & sticks the footer to page bottom */
 /*** reusable classes ***/
 
 .page-title {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding-top: 15px;
     text-align: center;
     font-size: 2rem;
@@ -199,6 +199,14 @@ with navbar & sticks the footer to page bottom */
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.card-text a {
+    color: var(--white);
+}
+
+.card-text a:hover {
+    color: var(--mid-blue);
 }
 
 /*** products/product_detail.html ***/

@@ -30,7 +30,19 @@
                                     <h5 class="card-title text-center">{{ product.name }}</h5>
                                     <!-- product category / abv / country -->
                                     <p class="card-text text-center">
-                                        {{ product.category.friendly_name }}  |  {{ product.abv }}%  |  {{ product.country.friendly_name }}
+                                        {% if product.category and product.country %}
+                                            <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>  |
+                                              {{ product.abv }}%  |
+                                                <a href="{% url 'products' %}?country={{ product.country.name }}">{{ product.country.friendly_name }}</a>
+                                        {% elif product.category and not product.country %}
+                                            <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>  |
+                                              {{ product.abv }}%
+                                        {% elif product.country and not product.category %}
+                                            {{ product.abv }}%  |
+                                              <a href="{% url 'products' %}?country={{ product.country.name }}">{{ product.country.friendly_name }}</a>
+                                        {% else %}
+                                            {{ product.abv }}%
+                                        {% endif %}
                                     </p>
                                     <!-- product price -->
                                     <h5 class="card-title text-center"><b>£{{ product.price }}</b></h5>

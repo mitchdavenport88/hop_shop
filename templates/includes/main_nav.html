@@ -13,8 +13,9 @@
                 All Beers
             </a>
             <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item">By ABV%</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=size&direction=desc" class="dropdown-item">By Size</a>
+                <a href="{% url 'products' %}?sort=abv&direction=desc" class="dropdown-item">By ABV%</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Beers</a>
             </div>
         </li>
