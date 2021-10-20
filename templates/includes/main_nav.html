@@ -25,8 +25,9 @@
                 Beers by Style
             </a>
             <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
-                <a href="" class="dropdown-item">Style1</a>
-                <a href="" class="dropdown-item">Style2</a>
+                {% for category in context_categories %}
+                    <a href="{% url 'products' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
+                {% endfor %}
             </div>
         </li>
         <!-- by country -->
@@ -36,10 +37,9 @@
                 Beers by Country
             </a>
             <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
-                <a href="" class="dropdown-item">Country1</a>
-                <a href="" class="dropdown-item">Country2</a>
-                <a href="" class="dropdown-item">Country3</a>
-                <a href="" class="dropdown-item">Country4</a>
+                {% for country in context_countries %}
+                    <a href="{% url 'products' %}?country={{ country.name }}" class="dropdown-item">{{ country.friendly_name }}</a>
+                {% endfor %}
             </div>
         </li>
         <!-- blog -->

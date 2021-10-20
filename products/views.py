@@ -8,8 +8,18 @@ def all_products(request):
     """ A view to show all products """
     products = Product.objects.all()
     query = None
+    category = None
+    country = None
 
     if request.GET:
+        if 'category' in request.GET:
+            category = request.GET['category']
+            products = products.filter(category__name=category)
+
+        if 'country' in request.GET:
+            country = request.GET['country']
+            products = products.filter(country__name=country)
+
         if 'query' in request.GET:
             query = request.GET['query']
             if not query:
