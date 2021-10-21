@@ -167,7 +167,7 @@ with navbar & sticks the footer to page bottom */
 /*** reusable classes ***/
 
 .page-title {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     padding-top: 15px;
     text-align: center;
     font-size: 2rem;
@@ -207,6 +207,16 @@ with navbar & sticks the footer to page bottom */
 
 .card-text a:hover {
     color: var(--mid-blue);
+}
+
+.sort-select-wrapper {
+    margin-bottom: 15px;
+    width: 25%;
+}
+
+.sort-select-wrapper select {
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
 }
 
 /*** products/product_detail.html ***/
@@ -276,6 +286,9 @@ with navbar & sticks the footer to page bottom */
     }
     .product-detail-image {
         height: 500px;
+    }
+    .sort-select-wrapper {
+        width: 50%;
     }
 }
 

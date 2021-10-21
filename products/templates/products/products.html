@@ -6,9 +6,28 @@
         <!-- page header -->
         <div class="row">
             <div class="col">
-                <h1 class="page-title">All Beers</h1>
+                <h1 class="page-title">Shop Beers</h1>
             </div>
         </div>
+        <!-- dropdown filter -->
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center justify-content-lg-end">
+                <div class="sort-select-wrapper">
+                    <select id="sort-selector" class="custom-select custom-select-sm">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        <option value="size_asc" {% if current_sorting == 'size_asc' %}selected{% endif %}>Size (small to big)</option>
+                        <option value="size_desc" {% if current_sorting == 'size_desc' %}selected{% endif %}>Size (big to small)</option>
+                        <option value="abv_asc" {% if current_sorting == 'abv_asc' %}selected{% endif %}>% (low to high)</option>
+                        <option value="abv_desc" {% if current_sorting == 'abv_desc' %}selected{% endif %}>% (high to low)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- product cards -->
         <div class="row">
             <div class="col-12">
                 <div class="row">
@@ -63,4 +82,28 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+            var selectedVal = selector.val();
+
+            if(selectedVal != "reset") {
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.set("sort");
+                currentUrl.searchParams.set("direction");
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
