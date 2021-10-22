@@ -180,15 +180,15 @@ with navbar & sticks the footer to page bottom */
 
 .card-group {
     margin-bottom: 30px;
-    color: var(--white);
 }
 
-.card {
+.product-card {
     border: 1px solid var(--dark-blue);
     background-color: var(--dark-blue);
     max-width: 400px;
     margin-right: auto;
     margin-left: auto;
+    color: var(--white);
 }
 
 .card-body {

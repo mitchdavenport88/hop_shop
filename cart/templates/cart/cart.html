@@ -9,5 +9,18 @@
                 <h1 class="page-title">My Cart</h1>
             </div>
         </div>
+
+        <div class="row">
+            {% if cart_items %}
+                <!-- insert table of bag_items here -->
+            {% else %}
+                <div class="col-10 offset-1">
+                    <p class="text-center">No items in the cart!</p>
+                    <a href="{% url 'products' %}" class="btn my-btn">
+                        <i class="fas fa-angle-left"></i> Keep Shopping!
+                    </a>
+                </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
