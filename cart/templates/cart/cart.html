@@ -3,25 +3,83 @@
 
 {% block content %}
     <div class="container-fluid">
+        <!-- delivery-info banner -->
+        {% if cart_items %}
+            <div class="row">
+                <div class="col-12 delivery-banner">
+                    {% if free_delivery_delta == 0 %}
+                        <p class="my-2">You've qualified for free next day delivery!</p>  
+                    {% else %}              
+                        <p class="my-2">Spend <strong>£{{ free_delivery_delta }}</strong> more for free next day delivery!</p>                
+                    {% endif %}                      
+                </div>
+            </div>
+        {% endif %}
         <!-- page header -->
         <div class="row">
-            <div class="col">
-                <h1 class="page-title">My Cart</h1>
+            <div class="col-12">
+                <h1 class="page-title">My Cart {% if cart_items %}({{ product_count }}){% endif %}</h1>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1 pl-sm-0 d-flex justify-content-start mb-3 col-lg-8 offset-lg-2">
+                <a href="{% url 'products' %}" class="btn my-btn">
+                    <i class="fas fa-angle-left"></i> Continue Shopping
+                </a>
             </div>
         </div>
-
-        <div class="row">
-            {% if cart_items %}
-                <!-- insert table of bag_items here -->
-                {{ cart_items }}
-            {% else %}
-                <div class="col-10 offset-1">
+        <!-- cart contents -->
+        <div class="row mx-0 cart-contents">
+            <div class="col-12 p-sm-0 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+                {% if cart_items %}
+                    <div class="row cart-title-row mb-1">
+                        <div class="col-0 col-md-2 p-0 font-weight"><span class="d-none d-md-block">Product Info</span></div>
+                        <div class="col-6 col-md-4 p-0 font-weight"><span class="d-md-none">Product Info</span></div>
+                        <div class="col-2 p-0 font-weight">Price</div>
+                        <div class="col-2 p-0 font-weight">Qty</div>
+                        <div class="col-2 p-0 font-weight">Subtotal</div>
+                    </div>
+                    {% for item in cart_items %}
+                        <div class="row cart-item-row rounded">
+                            <div class="d-none d-md-block col-2 p-0">
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="cart-image rounded">
+                            </div>
+                            <div class="col-6 col-md-4 cart-content flex-column">
+                                <strong><p>{{ item.product.name }}</p></strong>
+                                <p>{{ item.product.category.friendly_name }} | {{ item.product.abv }}% | {{ item.product.size }}ml</p>
+                            </div>
+                            <div class="col-2 cart-content">
+                                <p>£{{ item.product.price }}</p>
+                            </div>
+                            <div class="col-2 cart-content">
+                                <p>{{ item.quantity }}</p>
+                            </div>
+                            <div class="col-2 cart-content">
+                                <strong><p>£00.00</p></strong>
+                            </div>
+                        </div>                               
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-2 offset-8">
+                            <strong><p class="text-center">subtotal:</p></strong>
+                            <strong><p class="text-center">delivery:</p></strong>
+                            <strong><p class="text-center">total:</p></strong>
+                        </div>
+                        <div class="col-2">
+                            <p class="text-center">£{{ total }}</p>
+                            <p class="text-center">£{{ delivery|floatformat:2 }}</p>
+                            <strong><p class="text-center">£{{ grand_total|floatformat:2 }}</p></strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 offset-8 p-0 mb-3 d-flex justify-content-end">
+                            <a href="#" class="btn mb-3 btn-success font-weight-bold" style="width: 100%;">
+                                Checkout
+                            </a>
+                        </div> 
+                    </div>
+                {% else %}
                     <p class="text-center">No items in the cart!</p>
-                    <a href="{% url 'products' %}" class="btn my-btn">
-                        <i class="fas fa-angle-left"></i> Keep Shopping!
-                    </a>
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}

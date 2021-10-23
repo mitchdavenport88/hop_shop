@@ -51,7 +51,7 @@
                         <form action="{% url 'add_to_cart' product.id %}" method="POST">
                             {% csrf_token %}
                             <div class="d-flex flex-row justify-content-center">
-                                <div class="input-group mr-2" style="max-width: 140px;">
+                                <div class="input-group mr-2 qty_input_group">
                                     <!-- <button class="btn my-btn" type="button" id="button-minus">
                                         <i class="fas fa-minus"></i>
                                     </button> -->
@@ -61,7 +61,7 @@
                                         <i class="fas fa-plus"></i>
                                     </button> -->
                                 </div>
-                                <input type="submit" class="btn btn-success ml-2" value="Add"></input>
+                                <input type="submit" class="btn btn-success ml-2 font-weight-bold" value="add"></input>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}"></input>
                             </div>
                         </form>
