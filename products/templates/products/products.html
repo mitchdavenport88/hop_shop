@@ -70,14 +70,21 @@
                                         {% csrf_token %}
                                         <div class="d-flex flex-row justify-content-center">
                                             <div class="input-group mr-2 qty_input_group">
-                                                <!-- <button class="btn my-btn" type="button" id="button-minus">
-                                                    <i class="fas fa-minus"></i>
-                                                </button> -->
-                                                <input type="number" class="form-control" name="quantity" value="1" min="1" max="99"
+                                                <!-- minus button -->
+                                                <div class="input-group-prepend">
+                                                    <button class="btn my-btn minus-button" type="button" data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- input -->
+                                                <input type="number" class="form-control qty_input" name="quantity" value="1" min="1" max="99"
                                                     data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                                <!-- <button class="btn my-btn" type="button" id="button-add">
-                                                    <i class="fas fa-plus"></i>
-                                                </button> -->
+                                                <!-- plus button -->
+                                                <div class="input-group-append">
+                                                    <button class="btn my-btn plus-button" type="button" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                             <input type="submit" class="btn btn-success ml-2 font-weight-bold" value="add"></input>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}"></input>
@@ -115,4 +122,5 @@
             }
         })
     </script>
+    {% include 'products/includes/button_quantity_script.html' %}
 {% endblock %}

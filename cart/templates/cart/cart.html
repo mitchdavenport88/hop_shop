@@ -6,7 +6,7 @@
         <!-- delivery-info banner -->
         {% if cart_items %}
             <div class="row">
-                <div class="col-12 delivery-banner">
+                <div class="col-12 delivery-banner w-100">
                     {% if free_delivery_delta == 0 %}
                         <p class="my-2">You've qualified for free next day delivery!</p>  
                     {% else %}              
@@ -20,65 +20,130 @@
             <div class="col-12">
                 <h1 class="page-title">My Cart {% if cart_items %}({{ product_count }}){% endif %}</h1>
             </div>
-            <div class="col-12 col-sm-10 offset-sm-1 pl-sm-0 d-flex justify-content-start mb-3 col-lg-8 offset-lg-2">
+            <div class="col-12 mb-3 d-flex justify-content-start col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2">
                 <a href="{% url 'products' %}" class="btn my-btn">
                     <i class="fas fa-angle-left"></i> Continue Shopping
                 </a>
             </div>
         </div>
         <!-- cart contents -->
-        <div class="row mx-0 cart-contents">
-            <div class="col-12 p-sm-0 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+        <div class="row">
+            <div class="col-12 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2">
                 {% if cart_items %}
-                    <div class="row cart-title-row mb-1">
-                        <div class="col-0 col-md-2 p-0 font-weight"><span class="d-none d-md-block">Product Info</span></div>
-                        <div class="col-6 col-md-4 p-0 font-weight"><span class="d-md-none">Product Info</span></div>
-                        <div class="col-2 p-0 font-weight">Price</div>
-                        <div class="col-2 p-0 font-weight">Qty</div>
-                        <div class="col-2 p-0 font-weight">Subtotal</div>
+                    <!-- table titles -->
+                    <div class="row mb-1">
+                        <div class="col-8 col-sm-5 col-md-6 font-weight-bold">Product Info</div>
+                        <div class="d-none d-sm-block col-sm-5 col-md-4 font-weight-bold">Quantity</div>
+                        <div class="col-4 col-sm-2 col-md-2 pl-0 font-weight-bold">Subtotal</div>
                     </div>
+                    <!-- cart items (LOOP) -->
                     {% for item in cart_items %}
-                        <div class="row cart-item-row rounded">
-                            <div class="d-none d-md-block col-2 p-0">
+                        <div class="cart-item-row rounded d-flex flex-row">
+                            <!-- product image (md and above) -->
+                            <div class="d-none d-md-block col-md-2 p-md-0">
                                 <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="cart-image rounded">
                             </div>
-                            <div class="col-6 col-md-4 cart-content flex-column">
-                                <strong><p>{{ item.product.name }}</p></strong>
-                                <p>{{ item.product.category.friendly_name }} | {{ item.product.abv }}% | {{ item.product.size }}ml</p>
+                            <!-- product details -->
+                            <div class="col-8 p-0 col-sm-5 mt-sm-2 col-md-4 my-md-auto">
+                                <div><p class="text-center mb-md-2 font-weight-bold">{{ item.product.name }}</p></div>
+                                <div><p class="text-center mb-md-2">{{ item.product.category.friendly_name }} | {{ item.product.abv }}% | {{ item.product.size }}ml</p></div>
+                                <div><p class="text-center mb-md-2">{{ item.quantity }} @ £{{ item.product.price }} each</p></div>
+                                <div class="mb-2 d-sm-none">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <div class="d-flex flex-row justify-content-center">
+                                            <div class="input-group qty_input_group">
+                                                <!-- minus button -->
+                                                <div class="input-group-prepend">
+                                                    <button class="btn my-btn minus-button" type="button" data-item_id="" id="">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- input -->
+                                                <input type="number" class="form-control qty_input" name="quantity" value="1" min="1" max="99"
+                                                    data-item_id="" id="">
+                                                <!-- plus button -->
+                                                <div class="input-group-append">
+                                                    <button class="btn my-btn plus-button" type="button" data-item_id="" id="">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="col-2 cart-content">
-                                <p>£{{ item.product.price }}</p>
+                            <!-- quantity input -->
+                            <div class="d-none d-sm-block col-sm-5 d-sm-flex align-items-sm-center justify-content-center col-md-4">
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <div class="input-group qty_input_group">
+                                        <!-- minus button -->
+                                        <div class="input-group-prepend">
+                                            <button class="btn my-btn minus-button" type="button" data-item_id="" id="">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <!-- input -->
+                                        <input type="number" class="form-control qty_input" name="quantity" value="1" min="1" max="99"
+                                            data-item_id="" id="">
+                                        <!-- plus button -->
+                                        <div class="input-group-append">
+                                            <button class="btn my-btn plus-button" type="button" data-item_id="" id="">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-2 cart-content">
-                                <p>{{ item.quantity }}</p>
+                            <!-- subtotal -->
+                            <div class="col-4 col-sm-2 p-0 d-flex align-items-center">
+                                <div class="col text-center">
+                                    <strong>£00.00</strong>
+                                </div>
                             </div>
-                            <div class="col-2 cart-content">
-                                <strong><p>£00.00</p></strong>
-                            </div>
-                        </div>                               
+                        </div>
                     {% endfor %}
-                    <div class="row">
-                        <div class="col-2 offset-8">
-                            <strong><p class="text-center">subtotal:</p></strong>
-                            <strong><p class="text-center">delivery:</p></strong>
-                            <strong><p class="text-center">total:</p></strong>
-                        </div>
-                        <div class="col-2">
-                            <p class="text-center">£{{ total }}</p>
-                            <p class="text-center">£{{ delivery|floatformat:2 }}</p>
-                            <strong><p class="text-center">£{{ grand_total|floatformat:2 }}</p></strong>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4 offset-8 p-0 mb-3 d-flex justify-content-end">
-                            <a href="#" class="btn mb-3 btn-success font-weight-bold" style="width: 100%;">
-                                Checkout
-                            </a>
-                        </div> 
-                    </div>
                 {% else %}
                     <p class="text-center">No items in the cart!</p>
                 {% endif %}
+            </div>
+        </div>
+        <!-- totals -->
+        <div class="row">
+            <!-- subtotal -->
+            <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row">
+                <div class="col-8 col-sm-10 text-right p-0 font-weight-bold">
+                    <p>subtotal:</p>
+                </div>
+                <div class="col-4 col-sm-2">
+                    <p class="text-center p-0">£{{ total }}</p>
+                </div>
+            </div>
+            <!-- delivery -->
+            <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row">
+                <div class="col-8 col-sm-10 text-right p-0 font-weight-bold">
+                    <p>delivery:</p>
+                </div>
+                <div class="col-4 col-sm-2">
+                    <p class="text-center p-0">£{{ delivery|floatformat:2 }}</p>
+                </div>
+            </div>
+            <!-- total -->
+            <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row">
+                <div class="col-8 col-sm-10 text-right p-0 font-weight-bold">
+                    <p>total:</p>
+                </div>
+                <div class="col-4 col-sm-2">
+                    <p class="text-center p-0 font-weight-bold">£{{ grand_total|floatformat:2 }}</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 p-0">
+                <div class="col-12 col-sm-6 offset-sm-6 col-md-5 offset-md-7 p-sm-0">
+                    <a href="#" class="btn mb-3 btn-success font-weight-bold" style="width: 100%;">
+                        Checkout
+                    </a>
+                </div>
             </div>
         </div>
     </div>
