@@ -266,7 +266,7 @@ with navbar & sticks the footer to page bottom */
 }
 
 .cart-item-row {
-    border: 1px solid var(--mid-blue);
+    border: 1px solid var(--dark-blue);
     margin-bottom: 15px;
 }
 
@@ -279,11 +279,41 @@ with navbar & sticks the footer to page bottom */
     width: 140px;
 }
 
+.name-link a {
+    color: var(--dark-blue);
+}
+
+.name-link a:hover {
+    text-decoration: none;
+}
+
 .remove-link,
 .update-link {
     font-weight: bold;
     font-size: 0.9rem;
     cursor: pointer;
+}
+
+/*** toasts ***/
+
+.message-container {
+    z-index: 3;
+    position: fixed;
+    right: 0;
+}
+
+.toast-capper {
+    height: 5px;
+}
+
+.toast-header {
+    border-bottom: 1px solid var(--pale-grey);
+}
+
+.toast-body,
+.toast-header {
+    background: var(--white);
+    color: var(--dark-blue);
 }
 
 /*** buttons ***/
