@@ -270,6 +270,18 @@ with navbar & sticks the footer to page bottom */
     width: 100%;
 }
 
+.cart-links {
+    margin-top: 5px;
+    width: 140px;
+}
+
+.remove-link,
+.update-link {
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
 /*** buttons ***/
 
 .search-btn {
