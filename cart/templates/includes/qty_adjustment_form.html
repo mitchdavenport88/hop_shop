@@ -1,0 +1,24 @@
+<form class="update-form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
+    {% csrf_token %}
+    <div class="input-group qty_input_group">
+        <!-- minus button -->
+        <div class="input-group-prepend">
+            <button class="btn my-btn minus-button" type="button" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+        <!-- input -->
+        <input type="number" class="form-control qty_input" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+        <!-- plus button -->
+        <div class="input-group-append">
+            <button class="btn my-btn plus-button" type="button" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>                                       
+</form>
+<div class="d-flex justify-content-between cart-links">
+    <a class="update-link text-success">update</a>
+    <a id="remove_{{ item.item_id }}" class="remove-link text-danger">remove</a>
+</div>

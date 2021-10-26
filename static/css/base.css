@@ -261,8 +261,12 @@ with navbar & sticks the footer to page bottom */
     text-align: center;
 }
 
+.text-dark-blue {
+    color: var(--dark-blue);
+}
+
 .cart-item-row {
-    border: 1px solid var(--dark-blue);
+    border: 1px solid var(--mid-blue);
     margin-bottom: 15px;
 }
 
