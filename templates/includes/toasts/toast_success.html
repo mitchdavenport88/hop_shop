@@ -7,6 +7,41 @@
         </button>
     </div>
     <div class="toast-body">
-        {{ message }}
+        <div class="row">
+            <div class="col text-center">
+                {{ message }}
+                {% if cart_items %}<hr class="mt-1 mb-3">{% endif %}
+            </div>
+        </div>
+        {% if cart_items %}
+            <p class="font-weight-bold text-center">My Cart ({{ product_count }})</p>
+            <div class="cart-toast-wrapper">
+                {% for item in cart_items %}
+                    <div class="row my-2">
+                        <div class="col-3 pr-0">
+                            <img class="w-100 border rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        </div>
+                        <div class="col-9">
+                            <p class="font-weight-bold">{{ item.product.name }}</p>
+                            <p>Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="font-weight-bold my-2">
+                        Total{% if free_delivery_delta != 0 %} (Exc. delivery){% endif %}:
+                        <span class="float-right font-weight-bold">£{{ total|floatformat:2 }}</span>
+                    </p>
+                    {% if free_delivery_delta != 0 %}
+                        <p class="delivery-banner delivery-banner-toast mb-2 py-1">Spend <strong>£{{ free_delivery_delta }}</strong> more for free next day delivery!</p>
+                    {% endif %}
+                    <a href="{% url 'view_cart' %}" class="btn btn-success font-weight-bold" style="width: 100%;">
+                        Checkout
+                    </a>                 
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>

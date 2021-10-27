@@ -316,6 +316,16 @@ with navbar & sticks the footer to page bottom */
     color: var(--dark-blue);
 }
 
+.cart-toast-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.delivery-banner-toast {
+    font-size: inherit;
+}
+
 /*** buttons ***/
 
 .search-btn {
