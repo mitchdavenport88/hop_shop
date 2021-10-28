@@ -240,6 +240,8 @@ with navbar & sticks the footer to page bottom */
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
 }
 
 .product-detail-col {
@@ -390,6 +392,11 @@ with navbar & sticks the footer to page bottom */
     }
     .sort-select-wrapper {
         width: 50%;
+    }
+    .product-detail-image {
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        border-bottom-left-radius: 0;
     }
 }
 

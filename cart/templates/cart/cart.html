@@ -42,9 +42,15 @@
                         <div class="cart-item-row rounded d-flex flex-row">
                             <!-- product image (md and above) -->
                             <div class="d-none d-md-block col-md-2 p-md-0">
-                                <a href="{% url 'product_detail' item.item_id %}">
-                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="cart-image rounded">
-                                </a>
+                                {% if item.product.image %}
+                                    <a href="{% url 'product_detail' item.item_id %}">
+                                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="cart-image rounded">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' item.item_id %}">
+                                        <img src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.product.name }}" class="cart-image rounded">
+                                    </a>
+                                {% endif %}
                             </div>
                             <!-- product details -->
                             <div class="col-8 p-0 col-sm-5 mt-sm-2 col-md-4 my-md-auto">

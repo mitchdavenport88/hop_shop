@@ -1,3 +1,7 @@
+.checkout-content {
+    color: var(--dark-blue);
+}
+
 .fieldset-label {
     font-weight: bold;
     font-size: inherit;
@@ -5,4 +9,14 @@
 
 .order-summary-container {
     border: 1px solid var(--dark-blue);
+    background: var(--white);
+}
+
+.form-control {
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+}
+
+hr {
+    border-top: 1px solid var(--mid-blue);
 }

@@ -19,8 +19,12 @@
                 {% for item in cart_items %}
                     <div class="row my-2">
                         <div class="col-3 pr-0">
-                            <img class="w-100 border rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                        </div>
+                            {% if item.product.image %}
+                                <img class="w-100 border rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                                <img class="w-100 border rounded" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.product.name }}">
+                            {% endif %}
+                        </div>                                   
                         <div class="col-9">
                             <p class="font-weight-bold">{{ item.product.name }}</p>
                             <p>Qty: {{ item.quantity }}</p>
