@@ -1,0 +1,8 @@
+.fieldset-label {
+    font-weight: bold;
+    font-size: inherit;
+}
+
+.order-summary-container {
+    border: 1px solid var(--dark-blue);
+}

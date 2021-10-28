@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cart_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- page header -->
+        <div class="row">
+            <div class="col-12">
+                <h1 class="page-title">Checkout</h1>
+            </div>
+        </div>
+        <div class="row">
+            <!-- order summary -->
+            <div class="col-12 order-md-last col-md-5 col-lg-4">
+                <p class="fieldset-label mb-2">Order Summary ({{ product_count }})</p>
+                <div class="order-summary-container p-1 rounded mb-2">
+                    <div class="row m-0">
+                        <div class="col-7 p-0 mb-1 font-weight-bold small">Product Info</div>
+                        <div class="col-2 p-0 mb-1 font-weight-bold small">Qty</div>
+                        <div class="col-3 p-0 mb-1 font-weight-bold small">Subtotal</div>
+                    </div>
+                    {% for item in cart_items %}
+                        <div class="row m-0 mb-3">
+                            <div class="col-7 p-0 d-flex flex-column align-items-center">
+                                <p class="small mb-1">{{ item.product.name }}</p>
+                                <p class="small mb-1">{{ item.product.category.friendly_name }} | {{ item.product.abv }}% | {{ item.product.size }}ml</p>
+                                <p class="small mb-0">£{{ item.product.price }} each</p>
+                            </div>
+                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                <p class="small mb-0">{{ item.quantity }}</p>
+                            </div>
+                            <div class="col-3 p-0 d-flex align-items-center justify-content-center">
+                                <p class="small mb-0"><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+                            </div>  
+                        </div>
+                    {% endfor %}
+                </div>    
+                <div class="row d-flex flex-column m-0 p-1 mb-3">
+                    <div class="col-12 p-0 d-flex flex-row align-items-center mb-2">
+                        <div class="col-9 p-0">
+                            <p class="small text-right font-weight-bold m-0">subtotal:</p>
+                        </div>
+                        <div class="col-3 p-0">
+                            <p class="text-center p-0 m-0">£{{ total | floatformat:2 }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 d-flex flex-row align-items-center mb-2">
+                        <div class="col-9 p-0">
+                            <p class="small text-right font-weight-bold m-0">delivery:</p>
+                        </div>
+                        <div class="col-3 p-0">
+                            <p class="text-center p-0 m-0">£{{ delivery | floatformat:2 }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 d-flex flex-row align-items-center">
+                        <div class="col-9 p-0">
+                            <p class="small text-right font-weight-bold m-0">total:</p>
+                        </div>
+                        <div class="col-3 p-0">
+                            <p class="text-center p-0 m-0 font-weight-bold">£{{ grand_total | floatformat:2 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- form -->
+            <div class="col-12 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+                <p class="text-muted">Fill out the form below to complete your order.</p>
+                <form id="payment-form" action="{% url 'checkout' %}" method="POST">
+                    {% csrf_token %}
+                    <!-- details -->
+                    <fieldset class="mb-3">
+                        <legend class="fieldset-label">Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
+                    </fieldset>
+                    <!-- delivery -->
+                    <fieldset class="mb-3">
+                        <legend class="fieldset-label">Delivery</legend>
+                        {{ order_form.street_address | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        <div class="form-check form-check-inline">
+                            {% if user.is_authenticated %}
+                                <label class="form-check-label" for="save-checkout-info">
+                                    Save this delivery information to my profile
+                                </label>
+                                <input class="form-check-input ml-2" type="checkbox" name="save-checkout-info" id="save-checkout-info" checked>
+                            {% else %}
+                                <label class="form-check-label" for="save-checkout-info">
+                                    <a href="">Create an account</a> or
+                                    <a href=""> login</a> to save this information.
+                                </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <!-- payment -->
+                    <fieldset class="mb-3">
+                        <legend class="fieldset-label">Payment</legend>
+                    </fieldset>
+                    <div class="mb-3 text-right">
+                        <a href="{% url 'view_cart' %}" class="btn my-btn">
+                            <i class="fas fa-angle-left"></i> Adjust Cart
+                        </a>
+                        <button id="submit-button" class="btn btn-success font-weight-bold">
+                            <i class="far fa-check-circle"></i> Place Order
+                        </button>
+                        <p class="text-danger small mt-1">
+                            Your card will be charged <strong>£{{ grand_total|floatformat:2 }}.</strong>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

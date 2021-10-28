@@ -7,7 +7,7 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ('full_name', 'email', 'phone_number', 'street_address',
                   'town_or_city', 'county', 'postcode', 'country',)
-    
+
     def __init__(self, *args, **kwargs):
         """
         Set auto focus to the first field, remove auto-generated
@@ -22,14 +22,14 @@ class OrderForm(forms.ModelForm):
             'town_or_city': 'Town or City',
             'county': 'County or State',
             'postcode': 'Postcode',
+            'country': 'Country',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field] *}'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].label = False
+            if self.fields[field].required:
+                placeholder = f'{placeholders[field]} *'
+            else:
+                placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = False
