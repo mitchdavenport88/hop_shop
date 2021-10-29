@@ -12,11 +12,31 @@
     background: var(--white);
 }
 
-.form-control {
-    color: var(--dark-blue);
-    border: 1px solid var(--dark-blue);
-}
-
 hr {
     border-top: 1px solid var(--mid-blue);
+}
+
+/*** Stripe ***/
+
+.StripeElement,
+.stripe-style-input {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px;
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    border-radius: 0.25rem;
+    background-color: var(--white);
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+    box-shadow: 0 1px 3px 0 var(--mid-blue);
+}
+
+.stripe-style-input::placeholder,
+.StripeElement::placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
 }
