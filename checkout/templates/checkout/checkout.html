@@ -66,7 +66,12 @@
                             </div>
                         </div>
                     </div>
-                </div>    
+                </div> 
+                <div class="mb-3 text-left">
+                    <a href="{% url 'view_cart' %}" class="btn my-btn">
+                        <i class="fas fa-angle-left"></i> Adjust Cart
+                    </a>
+                </div>
             </div>
             <!-- form -->
             <div class="col-12 col-sm-10 offset-sm-1 col-md-5 col-lg-4 offset-lg-2">
@@ -123,6 +128,12 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div id="loading-overlay">
+        <h1 class="loading-spinner">
+            <i class="fas fa-2x fa-circle-notch fa-spin"></i>
+            <p class="mb-0 mt-3">Order Processing...</p>
+        </h1>
     </div>
 {% endblock %}
 
