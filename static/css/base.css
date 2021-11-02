@@ -91,6 +91,10 @@ body {
     color: var(--dark-blue);
 }
 
+input[name='query']::placeholder {
+    color: #AAB7C4;
+}
+
 .mobile-search {
     background: var(--dark-blue);
 }
@@ -355,6 +359,35 @@ with navbar & sticks the footer to page bottom */
 
 .qty_input_group {
     width: 140px;
+}
+
+/*** all auth templates ***/
+
+.allauth-container-card {
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    background: var(--white);
+    border-radius: 0.25rem;
+}
+
+.allauth-container {
+    color: var(--dark-blue);
+}
+
+.allauth-container input,
+.allauth-container-card input {
+    border-color: var(--dark-blue);
+}
+
+.allauth-container label:not([for='id_remember']),
+.allauth-container-card label:not([for='id_remember']) {
+    font-weight: bold;
+    font-size: inherit;
+}
+
+.allauth-container input::placeholder,
+.allauth-container-card input::placeholder {
+    color: #AAB7C4;
 }
 
 /*** media queries ***/
