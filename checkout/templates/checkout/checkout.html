@@ -112,6 +112,8 @@
                         <legend class="fieldset-label">Payment</legend>
                         <div id="card-element"></div>
                         <div id="card-errors" role="alert"></div>
+                        <!-- passes client secret value to checkout view so we can access pid -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <!-- buttons -->
                     <div class="mb-3 text-right">

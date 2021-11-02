@@ -53,7 +53,6 @@ form.addEventListener('submit', function(ev) {
     $('#submit-button').attr('disabled', true);
     // loading page
     $('#loading-overlay').fadeToggle(100);
-    // sends the card info to stripe
 
     var saveInfo = Boolean($('#save-checkout-info').is(':checked'));
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -63,8 +62,11 @@ form.addEventListener('submit', function(ev) {
         'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
-
+    
+    // posts the above data to cache_checkout_data view 
+    // view also collects user, metadata and cart and updates the intent
     $.post(url, postData).done(function() {
+        // sends the card info to stripe
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -92,7 +94,7 @@ form.addEventListener('submit', function(ev) {
                 }
             },
         }).then(function(result) {
-            // check for error
+            // checks for error, shows message if there is an error
             if(result.error) {
                 let errorDiv = document.getElementById('card-errors');
                 let html = `
@@ -101,17 +103,20 @@ form.addEventListener('submit', function(ev) {
                     </p>
                 `;
                 $(errorDiv).html(html);
+                // stops the order processing overlay
                 $('#loading-overlay').fadeToggle(100);
-                // re-enable the card element and submit button to allow submission again
+                // re-enable the submit button to allow submission again
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
-                    form.submit();
+                    // submits form if no errors are in the form
+                    // form.submit();
                 }
             }
         });
     }).fail(function() {
+        // reloads page, error message displays in toast, order is not taken!
         location.reload();
     })
 });
