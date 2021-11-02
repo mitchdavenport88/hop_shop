@@ -22,7 +22,7 @@ hr {
 .stripe-style-input {
     box-sizing: border-box;
     height: 40px;
-    padding: 10px;
+    padding: 5px 10px;
     color: var(--dark-blue);
     border: 1px solid var(--dark-blue);
     border-radius: 0.25rem;
@@ -39,6 +39,20 @@ hr {
 .StripeElement::placeholder {
     color: #AAB7C4;
     font-family: "Montserrat", sans-serif;
+}
+
+#card-element {
+    padding: 10px;
+}
+
+select,
+select option {
+    color: var(--dark-blue);
+}
+
+select:invalid,
+select option[value=""] {
+    color: #AAB7C4;
 }
 
 #loading-overlay {

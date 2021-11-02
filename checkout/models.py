@@ -1,4 +1,5 @@
 import uuid
+from django_countries.fields import CountryField
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
@@ -15,7 +16,7 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=60, null=False, blank=False)
     county = models.CharField(max_length=60, null=True, blank=True)
     postcode = models.CharField(max_length=20, null=True, blank=True)
-    country = models.CharField(max_length=60, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
     delivery_cost = models.DecimalField(
