@@ -1,0 +1,39 @@
+.fieldset-label,
+.my-label {
+    font-weight: bold;
+    font-size: inherit;
+}
+
+.order-history-container {
+    border: 1px solid var(--dark-blue);
+    background: var(--white);
+}
+
+.profile-form-input {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 5px 10px;
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    border-radius: 0.25rem;
+    background-color: var(--white);
+}
+
+.profile-form-input:focus,
+.profile-form-input:active {
+    box-shadow: 0 1px 3px 0 var(--mid-blue);
+}
+
+.profile-form-input::placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
+}
+
+#id_def_country,
+#id_def_country option:not(:first-child) {
+    color: var(--dark-blue);
+}
+
+#id_def_country option:first-child {
+    color: #AAB7C4;
+}

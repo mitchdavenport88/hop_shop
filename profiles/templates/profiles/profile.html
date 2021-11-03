@@ -13,5 +13,45 @@
                 <h1 class="page-title">My Profile</h1>
             </div>
         </div>
+        <div class="row">
+            <!--  existing delivery details -->
+            <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+                <form action="{% url 'profile' %}" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend class="fieldset-label">Saved Delivery Information</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <button class="mb-3 float-right btn my-btn">
+                        Update Info
+                    </button>
+                </form>
+            </div>
+            <!-- order history -->
+            <div class="col-12 col-sm-10 offset-sm-1 offset-md-0 col-md-5 col-lg-4">
+                <p class="my-label mb-2">Order History</p>
+                <div class="order-history-container py-2 px-3 rounded mb-3">
+                    
+                </div>
+            </div>
+        </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        let countrySelected = $('#id_def_country').val();
+        if (!countrySelected) {
+            $('#id_def_country').css('color', '#AAB7C4' );
+        };
+        $('#id_def_country').change(function() {
+            countrySelected = $(this).val()
+            if (!countrySelected) {
+                $(this).css('color', '#AAB7C4' );
+            } else {
+                $(this).css('color', '#061A40' );
+            }
+        });
+    </script>
 {% endblock %}

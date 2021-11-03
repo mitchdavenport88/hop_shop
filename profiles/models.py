@@ -12,7 +12,7 @@ class UserProfile(models.Model):
     def_town_or_city = models.CharField(max_length=60, null=True, blank=True)
     def_county = models.CharField(max_length=60, null=True, blank=True)
     def_postcode = models.CharField(max_length=20, null=True, blank=True)
-    def_country = CountryField(blank_label='Country *', null=True, blank=True)
+    def_country = CountryField(blank_label='Country', null=True, blank=True)
 
     def __str__(self):
         return self.user.username
