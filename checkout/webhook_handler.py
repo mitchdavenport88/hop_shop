@@ -4,6 +4,7 @@ import time
 from django.http import HttpResponse
 
 from products.models import Product
+from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 
 
@@ -34,6 +35,19 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
+
+        # Updates default delivery info on profile page
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info == 'true':
+                profile.def_street_address = shipping_details.address.line1
+                profile.def_town_or_city = shipping_details.address.city
+                profile.def_county = shipping_details.address.state
+                profile.def_postcode = shipping_details.address.postal_code
+                profile.def_country = shipping_details.address.country
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -66,6 +80,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     street_address=shipping_details.address.line1,
