@@ -7,6 +7,8 @@
 .order-history-container {
     border: 1px solid var(--dark-blue);
     background: var(--white);
+    max-height: 318px;
+    overflow-y: auto;
 }
 
 .profile-form-input {
