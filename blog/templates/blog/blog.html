@@ -10,6 +10,15 @@
             </div>
         </div>
         <!-- posts -->
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-4 text-center">
+                <p>{{ post.title }}</p>
+                <p>{{ post.content|truncatechars:100 }}</p>
+                <a class="btn my-btn" href="{% url 'blog_detail' post.slug %}">See More...</a>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
 
