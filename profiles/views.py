@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
+from checkout.models import Order
 from .models import UserProfile
 from .forms import UserProfileForm
-from checkout.models import Order
 
 
 def profile(request):
@@ -17,7 +17,7 @@ def profile(request):
             messages.success(request, 'Delivery information updated.')
 
     form = UserProfileForm(instance=user_profile)
-    orders = user_profile.orders.all()
+    orders = user_profile.orders.all().order_by('-date')
     context = {
         'form': form,
         'orders': orders,
