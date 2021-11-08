@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
 {% block content %}
     <div class="container-fluid">
         <!-- page header -->
@@ -9,16 +13,33 @@
                 <h1 class="page-title">Blog</h1>
             </div>
         </div>
-        <!-- posts -->
+        <!-- all posts -->
         <div class="row">
-            {% for post in posts %}
-            <div class="col-4 text-center">
-                <p>{{ post.title }}</p>
-                <p>{{ post.content|truncatechars:100 }}</p>
-                <a class="btn my-btn" href="{% url 'blog_detail' post.slug %}">See More...</a>
+            <div class="col-12 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 blog-content">
+                <div class="row">
+                    {% for post in posts %}
+                        <div class="col-10 offset-1 col-sm-6 offset-sm-0 col-lg-4 text-center mb-3 card-group d-flex flex-column">
+                            <div class="card">
+                                <a href="{% url 'blog_detail' post.slug %}">
+                                    <img src="{{ post.image.url }}" class="card-img-top rounded" alt="{{ post.title }}">
+                                </a>
+                            </div>
+                            <div class="card-body px-0">
+                                <div class="card-text-group">
+                                    <p class="card-text mb-2">
+                                        <small class="text-muted">{{ post.date_posted }}</small>
+                                    </p>
+                                    <p class="card-text font-weight-bold mb-0">{{ post.title }}</p>
+                                    <p class="card-text small">{{ post.content|truncatechars:150 }}</p>
+                                </div>
+                                <a class="btn my-btn mt-2" href="{% url 'blog_detail' post.slug %}">
+                                    Read More...
+                                </a>
+                            </div>    
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-            {% endfor %}
-        </div>
+        </div>   
     </div>
 {% endblock %}
-

@@ -1,0 +1,34 @@
+.blog-content {
+    color: var(--dark-blue);
+}
+
+.card {
+    background: none;
+    border: none;
+}
+
+.card-group>.card {
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding-top: 0;
+}
+
+.card,
+.card-body {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-text-group {
+    text-align: start;
+    margin-bottom: 0.5rem;
+}
