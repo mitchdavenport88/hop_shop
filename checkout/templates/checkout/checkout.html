@@ -27,8 +27,13 @@
                     {% for item in cart_items %}
                         <div class="row m-0">
                             <div class="col-7 p-0 d-flex flex-column align-items-start">
-                                <p class="small mb-1">{{ item.product.name }}</p>
-                                <p class="small mb-1">{{ item.product.category.friendly_name }} | {{ item.product.abv }}% | {{ item.product.size }}ml</p>
+                                <p class="small mb-1">{{ item.product.name|title }}</p>
+                                <p class="small mb-1">
+                                    {% if item.product.category %}
+                                        {{ item.product.category.friendly_name }} | 
+                                    {% endif %}
+                                    {{ item.product.abv }}% | {{ item.product.size }}ml
+                                </p>
                                 <p class="small mb-1">£{{ item.product.price }} each</p>
                             </div>
                             <div class="col-2 p-0 d-flex align-items-center justify-content-center">

@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 
 
 class Category(models.Model):
@@ -46,3 +47,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    # Code for image resizing was found here and edited accordingly
+    # https://www.youtube.com/watch?v=CQ90L5jfldw
+    def save(self):
+        super().save()
+        # Resizes image uploaded
+        if self.image:
+            uploaded_img = Image.open(self.image.path)
+            if uploaded_img.height > 540 or uploaded_img.width > 540:
+                output_size = (540, 540)
+                uploaded_img.thumbnail(output_size)
+                uploaded_img.save(self.image.path)

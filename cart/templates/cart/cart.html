@@ -56,10 +56,17 @@
                             <div class="col-8 p-0 col-sm-5 mt-sm-2 col-md-4 my-md-auto">
                                 <div class="name-link">
                                     <a href="{% url 'product_detail' item.item_id %}">
-                                        <p class="text-center mt-2 mt-md-0 mb-md-2 font-weight-bold">{{ item.product.name }}</p>
+                                        <p class="text-center mt-2 mt-md-0 mb-md-2 font-weight-bold">{{ item.product.name|title }}</p>
                                     </a>
                                 </div>
-                                <div><p class="text-center mb-md-2">{{ item.product.category.friendly_name }} | {{ item.product.abv }}% | {{ item.product.size }}ml</p></div>
+                                <div>
+                                    <p class="text-center mb-md-2">
+                                        {% if item.product.category %}
+                                            {{ item.product.category.friendly_name }} | 
+                                        {% endif %}
+                                        {{ item.product.abv }}% | {{ item.product.size }}ml
+                                    </p>
+                                </div>
                                 <div><p class="text-center mb-2 mb-md-0">£{{ item.product.price }} each</p></div>
                                 <div class="mb-2 d-flex flex-column align-items-center d-sm-none">
                                     {% include 'includes/qty_adjustment_form.html' %}

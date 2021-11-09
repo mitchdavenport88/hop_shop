@@ -76,7 +76,7 @@
                     {% for item in order.lineitems.all %}
                         <div class="row my-1">
                             <div class="col-8">
-                                <p class="small m-0">{{ item.quantity }} no. {{ item.product.name }} </p>
+                                <p class="small m-0">{{ item.quantity }} no. {{ item.product.name|title }} </p>
                             </div>
                             <div class="col-4 text-right">
                                 <p class="small m-0">£{{ item.product.price }} each</p>

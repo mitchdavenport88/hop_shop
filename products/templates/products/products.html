@@ -46,7 +46,7 @@
                                 {% endif %}
                                 <div class="card-body">
                                     <!-- product name -->
-                                    <h5 class="card-title text-center">{{ product.name }}</h5>
+                                    <h5 class="card-title text-center">{{ product.name|title }}</h5>
                                     <!-- product category / abv / country -->
                                     <p class="card-text text-center">
                                         {% if product.category and product.country %}
