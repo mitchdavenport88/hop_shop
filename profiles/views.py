@@ -15,8 +15,11 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Delivery information updated.')
+        else:
+            messages.error(request, 'Delivery information update failed.')
+    else:
+        form = UserProfileForm(instance=user_profile)
 
-    form = UserProfileForm(instance=user_profile)
     orders = user_profile.orders.all().order_by('-date')
     context = {
         'form': form,
