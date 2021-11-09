@@ -6,12 +6,12 @@
         <!-- page header -->
         <div class="row">
             <div class="col-12">
-                <h1 class="page-title">Add a Product</h1>
+                <h1 class="page-title">Edit Product</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
-                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <fieldset>
                         {{ form|crispy }}
@@ -22,7 +22,7 @@
                             <i class="fas fa-angle-left"></i> Products
                         </a>
                         <button type="submit" class="btn btn-success font-weight-bold">
-                            Add Product
+                            Update Product
                         </button>
                     </div>
                 </form>
