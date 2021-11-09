@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- page header -->
+        <div class="row">
+            <div class="col-12">
+                <h1 class="page-title">Product Management</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <!-- buttons -->
+                    <div class="mb-3 text-right">
+                        <a href="{% url 'products' %}" class="btn my-btn">
+                            <i class="fas fa-angle-left"></i> Products
+                        </a>
+                        <button type="submit" class="btn btn-success font-weight-bold">
+                            Add Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
