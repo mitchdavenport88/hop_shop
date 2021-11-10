@@ -257,6 +257,11 @@ with navbar & sticks the footer to page bottom */
     justify-content: center;
 }
 
+.product-detail-admin {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 /*** cart.html ***/
 
 .delivery-banner {
@@ -359,6 +364,21 @@ with navbar & sticks the footer to page bottom */
 
 .qty_input_group {
     width: 140px;
+}
+
+/*** modals ***/
+
+.modal-content {
+    background-color: var(--pale-grey);
+    color: var(--dark-blue);
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
 }
 
 /*** all auth templates ***/
