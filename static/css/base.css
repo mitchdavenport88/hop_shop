@@ -262,6 +262,78 @@ with navbar & sticks the footer to page bottom */
     margin: 0 auto;
 }
 
+/*** products/add & products/edit forms ***/
+
+.product-form {
+    color: var(--dark-blue);
+}
+
+.product-form label {
+    font-weight: bold;
+    font-size: inherit;
+    margin-bottom: 0.25rem;
+}
+
+.product-form-input, #id_image {
+    border: 1px solid var(--dark-blue);
+    box-sizing: border-box;
+    height: 40px;
+    padding: 5px 10px;
+    color: var(--dark-blue);
+    background-color: var(--white);
+    border-radius: 0.25rem;
+}
+
+.product-form-input::placeholder {
+    color: #AAB7C4;
+}
+
+select,
+select option {
+    color: var(--dark-blue);
+}
+
+select:invalid,
+select option[value=""] {
+    color: #AAB7C4;
+}
+
+.product-form-input:focus,
+.product-form-input:active {
+    box-shadow: 0 1px 3px 0 var(--mid-blue);
+}
+
+#id_description {
+    height: 293px;
+    resize: none;
+}
+
+.asteriskField {
+    display: none;
+}
+
+/*** custom widget on add/edit product forms ***/
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before,
+.custom-control-input:checked~.custom-control-label::before {
+    border-radius: .25rem;
+}
+
 /*** cart.html ***/
 
 .delivery-banner {

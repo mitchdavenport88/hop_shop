@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Product, Category, Country
 
 
@@ -7,18 +8,21 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
+        exclude = ('sku',)
+
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
             'name': 'Name',
-            'sku': 'SKU no.',
             'description': 'Description',
             'category': 'Category',
             'country': 'Country',
             'abv': 'ABV %',
             'size': 'Size (ml)',
-            'price': 'Price',
+            'price': 'Price (£)',
             'image': 'Image',
         }
         categories = Category.objects.all()
@@ -32,10 +36,10 @@ class ProductForm(forms.ModelForm):
         self.fields['country'].choices = country_friendly_names
         self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].label = False
             if field != 'country' or field != 'category':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'product-form-input'

@@ -9,25 +9,42 @@
                 <h1 class="page-title">Add a Product</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
-                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <fieldset>
-                        {{ form|crispy }}
-                    </fieldset>
-                    <!-- buttons -->
-                    <div class="mb-3 text-right">
-                        <a href="{% url 'products' %}" class="btn my-btn">
-                            <i class="fas fa-angle-left"></i> Products
-                        </a>
-                        <button type="submit" class="btn btn-success font-weight-bold">
-                            Add Product
-                        </button>
-                    </div>
-                </form>
+        <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+            {% csrf_token %}    
+            <div class="row product-form">
+                <!-- col 1 -->
+                <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+                    {{ form.name | as_crispy_field }}
+                    {{ form.category | as_crispy_field }}
+                    {{ form.country | as_crispy_field }}
+                    {{ form.abv | as_crispy_field }}
+                    {{ form.size | as_crispy_field }}
+                    {{ form.price | as_crispy_field }}
+                </div>
+                <!-- col 2 -->
+                <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-0 col-lg-4">
+                    {{ form.description | as_crispy_field }}
+                    {{ form.image | as_crispy_field }}
+                </div>
+                <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2 mb-3">
+                    <a href="{% url 'products' %}" class="btn my-btn">
+                        <i class="fas fa-angle-left"></i> Products
+                    </a>
+                    <button type="submit" class="btn btn-success font-weight-bold">
+                        Add Product
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>  
     </div>
+{% endblock %}
 
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image selected: ${file.name}`);
+        });
+    </script>
 {% endblock %}
