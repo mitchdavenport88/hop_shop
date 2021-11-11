@@ -24,8 +24,53 @@
                     <strong>Article by {{ blog_post.author }}</strong>
                 </p>
                 <a class="btn my-btn mb-3" href="{% url 'blog_posts' %}">
-                    <i class="fas fa-angle-left"></i> Back to Blog
+                    <i class="fas fa-angle-left"></i> Back to Blog's
                 </a>
+            </div>
+        </div>
+        <!-- comments -->
+        <div class="row">
+            <div class="col-12 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2 blog-content">
+                <hr>
+                <h5 class="font-weight-bold mb-2">Join the conversation</h5>
+                {% if user.is_authenticated %}
+                    <form method="POST">
+                        {% csrf_token %}    
+                        {{ comment_form | crispy }}
+                        <div class="text-right">
+                            <button type="submit" class="btn my-btn mb-3">Post comment</button>
+                        </div>
+                    </form>
+                {% else %}
+                    <p class="text-center my-3"> You must be a registered user before commenting on our blog posts.
+                        <a href="{% url 'account_signup' %}">Create an account</a> or
+                        <a href="{% url 'account_login' %}"> login here</a>.
+                    </p>
+                {% endif %}
+                <h5 class="font-weight-bold mb-2">Comments...</h5>
+                <div class="row">
+                    <div class="col-12 col-lg-8 offset-lg-2 pr-lg-0">
+                        {% if comments.count > 0 %}
+                            {% for comment in comments %}
+                                <div class="comment-container p-1 px-2 mb-3">
+                                    <p class="mb-0"><strong>{{ comment.username }}</strong> says:</p>
+                                    <p class="text-muted small mb-0">{{ comment.date_posted }}</p>
+                                    <p class="text-center m-1">"{{ comment.body|linebreaksbr }}"</p>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="comment-container p-1 px-2 mb-3">
+                                <p class="text-center m-1">
+                                    There are <strong>{{ comments.count }}</strong> comments currently,
+                                    be the first to leave a comment above.<br><br> You must be a registered 
+                                    user before commenting on our blog posts.
+                                    <a href="{% url 'account_signup' %}">Create an account</a> or
+                                    <a href="{% url 'account_login' %}"> login here</a>.
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
