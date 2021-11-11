@@ -23,7 +23,7 @@ class Comment(models.Model):
 
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE,
                              related_name='comments')
-    username = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
 

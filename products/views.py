@@ -91,7 +91,7 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Check the \
                 form is valid and try again.')
     else:
-        form = ProductForm
+        form = ProductForm()
 
     context = {
         'form': form,

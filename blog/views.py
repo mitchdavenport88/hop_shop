@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 from .models import BlogPost
+from .forms import CommentForm
 
 
 def blog_posts(request):
@@ -16,8 +17,27 @@ def blog_posts(request):
 def blog_detail(request, slug):
     """ A view that returns individual blog posts products """
     blog_post = get_object_or_404(BlogPost, slug=slug)
+    comments = blog_post.comments.all()
+    new_comment = None
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            # Creates new_comment object (doesn't save it)
+            new_comment = comment_form.save(commit=False)
+            # Assigns the value of what blogpost the user is on
+            new_comment.post = blog_post
+            # Assigns the username (must be logged in to comment)
+            new_comment.username = request.user
+            new_comment.save()
+            return redirect(reverse('blog_detail', args=[blog_post.slug]))
+    else:
+        comment_form = CommentForm()
+
     context = {
         'blog_post': blog_post,
+        'comments': comments,
+        'comment_form': comment_form,
     }
 
     return render(request, 'blog/blog_detail.html', context)
