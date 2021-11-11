@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost
+from .models import BlogPost, Comment
 
 
 class BlogPostAdmin(admin.ModelAdmin):
@@ -8,4 +8,10 @@ class BlogPostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('username', 'body', 'post', 'date_posted')
+    search_fields = ['username', 'body']
+
+
 admin.site.register(BlogPost, BlogPostAdmin)
+admin.site.register(Comment, CommentAdmin)
