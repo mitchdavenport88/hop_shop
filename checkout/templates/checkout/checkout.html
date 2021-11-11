@@ -106,8 +106,8 @@
                                 <input class="form-check-input ml-2" type="checkbox" name="save-checkout-info" id="save-checkout-info" checked>
                             {% else %}
                                 <label class="form-check-label" for="save-checkout-info">
-                                    <a href="">Create an account</a> or
-                                    <a href=""> login</a> to save this information.
+                                    <a href="{% url 'account_signup' %}">Create an account</a> or
+                                    <a href="{% url 'account_login' %}"> login</a> to save this information.
                                 </label>
                             {% endif %}
                         </div>
