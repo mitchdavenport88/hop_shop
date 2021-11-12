@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 
 from .models import BlogPost
 from .forms import CommentForm
@@ -30,7 +31,11 @@ def blog_detail(request, slug):
             # Assigns the username (must be logged in to comment)
             new_comment.username = request.user
             new_comment.save()
+            messages.success(request, 'Your comment has been posted!')
             return redirect(reverse('blog_detail', args=[blog_post.slug]))
+        else:
+            messages.error(request, 'Failed to post your comment. Check that \
+                the post is valid and try again.')
     else:
         comment_form = CommentForm()
 

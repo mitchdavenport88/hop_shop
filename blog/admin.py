@@ -2,14 +2,20 @@ from django.contrib import admin
 from .models import BlogPost, Comment
 
 
+class CommentInline(admin.TabularInline):
+    model = Comment
+    extra = 0
+
+
 class BlogPostAdmin(admin.ModelAdmin):
     list_display = ('date_posted', 'title', 'slug')
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
+    inlines = [CommentInline, ]
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('username', 'body', 'post', 'date_posted')
+    list_display = ('date_posted', 'post', 'body', 'username')
     search_fields = ['username', 'body']
 
 

@@ -14,8 +14,7 @@ class CommentForm(forms.ModelForm):
         auto-generated input labels and insert placeholder
         """
         super().__init__(*args, **kwargs)
-        self.fields['body'].widget.attrs['autofocus'] = True
         self.fields['body'].widget.attrs['placeholder'] = (
-            'Write your comment here...')
+            'Write your comment here... (500 characters max).')
         self.fields['body'].label = False
         self.fields['body'].widget.attrs['class'] = 'comment-form-input'
