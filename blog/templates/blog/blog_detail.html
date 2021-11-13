@@ -62,10 +62,13 @@
                             <div class="comment-container p-1 px-2 mb-3">
                                 <p class="text-center m-1">
                                     There are <strong>{{ comments.count }}</strong> comments currently,
-                                    be the first to leave a comment above.<br><br> You must be a registered 
-                                    user before commenting on our blog posts.
-                                    <a href="{% url 'account_signup' %}">Create an account</a> or
-                                    <a href="{% url 'account_login' %}"> login here</a>.
+                                    be the first to leave a comment above.
+                                    {% if not user.is_authenticated %}
+                                        <br><br>
+                                        You must be a registered user before commenting on our blog posts.
+                                        <a href="{% url 'account_signup' %}">Create an account</a> or
+                                        <a href="{% url 'account_login' %}"> login here</a>.
+                                    {% endif %}
                                 </p>
                             </div>
                         {% endif %}

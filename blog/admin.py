@@ -10,7 +10,6 @@ class CommentInline(admin.TabularInline):
 class BlogPostAdmin(admin.ModelAdmin):
     list_display = ('date_posted', 'title', 'slug')
     search_fields = ['title', 'content']
-    prepopulated_fields = {'slug': ('title',)}
     inlines = [CommentInline, ]
 
 
