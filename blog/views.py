@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 
 from .models import BlogPost
-from .forms import CommentForm
+from .forms import CommentForm, BlogPostForm
 
 
 def blog_posts(request):
@@ -46,3 +46,13 @@ def blog_detail(request, slug):
     }
 
     return render(request, 'blog/blog_detail.html', context)
+
+
+def add_blog_post(request):
+    """ Add blog posts to the blog """
+    form = BlogPostForm()
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'blog/add_post.html', context)
