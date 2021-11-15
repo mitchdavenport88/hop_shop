@@ -26,8 +26,8 @@
                     {{ form.content | as_crispy_field }}
                 </div>
                 <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2 mb-3">
-                    <a href="{% url 'blog_posts' %}" class="btn my-btn">
-                        <i class="fas fa-angle-left"></i> Back to Blog's
+                    <a href="{% url 'blog_detail' blog_post.slug %}" class="btn my-btn">
+                        <i class="fas fa-angle-left"></i> Back to Post
                     </a>
                     <button type="submit" class="btn btn-success font-weight-bold">
                         Update Blog Post
