@@ -115,3 +115,18 @@ def edit_blog_post(request, slug):
     }
 
     return render(request, 'blog/edit_post.html', context)
+
+
+@login_required
+def delete_blog_post(request, slug):
+    """ Delete existing blog posts in the blog """
+    # Allows access to superuser only
+    if not request.user.is_superuser:
+        messages.error(request, 'Only Hop Shop Admin have \
+            access to this page!')
+        return redirect(reverse('home'))
+
+    blog_post = get_object_or_404(BlogPost, slug=slug)
+    blog_post.delete()
+    messages.success(request, 'Blog post deleted!')
+    return redirect(reverse('blog_posts'))
