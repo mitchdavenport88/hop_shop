@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 
+{% block extra_title %}| Edit {{ blog_post.title }}{% endblock %}
+
 {% block content %}
     <div class="container-fluid">
         <!-- page header -->

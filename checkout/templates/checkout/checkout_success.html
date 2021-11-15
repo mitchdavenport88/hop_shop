@@ -5,6 +5,14 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+{% block extra_title %}
+    {% if from_profile %}
+        | Order History
+    {% else %}
+        | Order Complete
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="container-fluid">
         <!-- page header -->

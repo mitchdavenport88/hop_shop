@@ -3,10 +3,12 @@
 {% load i18n %}
 {% load account socialaccount %}
 
+{% block extra_title %}| Log In{% endblock %}
+
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block inner_content %}
-    <h1 class="page-title">{% trans "Sign In" %}</h1>
+    <h1 class="page-title">{% trans "Log In" %}</h1>
     <div class="allauth-container-card p-3 mb-3">
         {% get_providers as socialaccount_providers %}
         {% if socialaccount_providers %}

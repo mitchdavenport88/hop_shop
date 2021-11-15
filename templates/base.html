@@ -34,7 +34,7 @@
 
     {% block extra_js %}{% endblock %}
 
-    <title>HopShop {% block extra_title %}{% endblock %}</title>
+    <title>The Hop Shop {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -91,8 +91,8 @@
                                     <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
                                 {% endif %}
                             </div>
                         </li>
