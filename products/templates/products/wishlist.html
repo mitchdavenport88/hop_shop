@@ -16,7 +16,13 @@
             </div>
         </div>
         <div class="row">
-            
+            <div class="col">
+                {% for product in wishlist_products %}
+                    <div>
+                        {{ product }}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

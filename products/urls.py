@@ -10,4 +10,6 @@ urlpatterns = [
          name='delete_product'),
     # Wishlist
     path('wishlist/', views.wishlist, name='wishlist'),
+    path('wishlist_toggle/<int:product_id>/', views.wishlist_toggle,
+         name='wishlist_toggle'),
 ]

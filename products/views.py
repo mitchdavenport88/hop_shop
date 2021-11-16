@@ -151,9 +151,24 @@ def delete_product(request, product_id):
 @login_required
 def wishlist(request):
     user_profile = get_object_or_404(UserProfile, user=request.user)
+    wishlist_products = user_profile.wishlist.all()
 
     context = {
         'user_profile': user_profile,
+        'wishlist_products': wishlist_products,
     }
 
     return render(request, 'products/wishlist.html', context)
+
+
+@login_required
+def wishlist_toggle(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+
+    if user_profile.wishlist.filter(pk=product_id).exists():
+        user_profile.wishlist.remove(product)
+    else:
+        user_profile.wishlist.add(product)
+    # Refreshes existing page
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
