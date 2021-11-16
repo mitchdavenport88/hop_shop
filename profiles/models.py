@@ -4,10 +4,12 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 
 from django_countries.fields import CountryField
+from products.models import Product
 
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    wishlist = models.ManyToManyField(Product, default=None, blank=True)
     def_street_address = models.CharField(max_length=80, null=True, blank=True)
     def_town_or_city = models.CharField(max_length=60, null=True, blank=True)
     def_county = models.CharField(max_length=60, null=True, blank=True)

@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponseRedirect)
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
+from profiles.models import UserProfile
 from .models import Product
 from .forms import ProductForm
 
@@ -144,3 +146,14 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def wishlist(request):
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+
+    context = {
+        'user_profile': user_profile,
+    }
+
+    return render(request, 'products/wishlist.html', context)
