@@ -99,6 +99,16 @@ input[name='query']::placeholder {
     background: var(--dark-blue);
 }
 
+/* Code for button counter was found on the following and edited accordingly
+https://stackoverflow.com/questions/51304169/how-to-put-the-number-at-top-right-corner-of-cart-icon */
+#cart-count {
+    font-size: 0.6rem;
+    vertical-align: top;
+    margin-left: -25%;
+    background: #FF0000;
+    color: var(--white);
+}
+
 /* positions container so that content doesn't clash
 with navbar & sticks the footer to page bottom */
 .content-container {

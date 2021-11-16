@@ -108,10 +108,13 @@
                         </li>
                         <!-- cart logic -->
                         <li class="list-inline-item">
-                            <a class="nav-link nav-link-logo" href="{% url 'view_cart' %}">
+                            <a class="nav-link nav-link-logo {% if product_count > 0 %}pr-0{% endif %}" href="{% url 'view_cart' %}">
                                 <div class="text-center">
                                     <div>
                                         <i class="fas fa-shopping-cart"></i>
+                                        {% if product_count > 0 %}
+                                            <span class="badge" id="cart-count">{{ product_count }}</span>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </a>
