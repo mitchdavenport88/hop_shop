@@ -19,6 +19,11 @@ def all_products(request):
     sort = None
     direction = None
 
+    if request.user.is_authenticated:
+        user_profile = get_object_or_404(UserProfile, user=request.user)
+    else:
+        user_profile = None
+
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -59,6 +64,7 @@ def all_products(request):
         'products': products,
         'search_query': query,
         'current_sorting': current_sorting,
+        'user_profile': user_profile,
     }
 
     return render(request, 'products/products.html', context)
@@ -67,8 +73,15 @@ def all_products(request):
 def product_detail(request, product_id):
     """ A view to show individual products """
     product = get_object_or_404(Product, pk=product_id)
+
+    if request.user.is_authenticated:
+        user_profile = get_object_or_404(UserProfile, user=request.user)
+    else:
+        user_profile = None
+
     context = {
         'product': product,
+        'user_profile': user_profile,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -168,7 +181,9 @@ def wishlist_toggle(request, product_id):
 
     if user_profile.wishlist.filter(pk=product_id).exists():
         user_profile.wishlist.remove(product)
+        messages.info(request, f'{product.name} removed from wishlist!')
     else:
         user_profile.wishlist.add(product)
-    # Refreshes existing page
+        messages.info(request, f'{product.name} added to wishlist!')
+
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

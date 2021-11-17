@@ -444,8 +444,21 @@ select option[value=""] {
     color: var(--mid-blue);
 }
 
+.wishlist-btn {
+    font-size: 1.75rem;
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    color: var(--mid-blue);
+}
+
+.wishlist-btn:hover {
+    color: #DC3545;
+}
+
 .qty_input_group {
-    width: 140px;
+    max-width: 140px;
+    min-width: 115px;
 }
 
 /*** modals ***/
