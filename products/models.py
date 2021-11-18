@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from PIL import Image
 
 
@@ -48,14 +50,39 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    def generate_sku(self):
+        """ Function creates a sku for a newly added product """
+        if self.category:
+            sku_category = self.category.friendly_name[:2].upper()
+        else:
+            sku_category = '--'
+
+        if self.country:
+            sku_country = self.country.friendly_name[:2].upper()
+        else:
+            sku_country = '--'
+
+        sku_pk = self.pk
+
+        sku = f'THS/{sku_category}/{sku_pk}{sku_country}'
+        return sku
+
     # Code for image resizing was found here and edited accordingly
     # https://www.youtube.com/watch?v=CQ90L5jfldw
     def save(self):
-        super().save()
         # Resizes image uploaded
+        super().save()
         if self.image:
             uploaded_img = Image.open(self.image.path)
             if uploaded_img.height > 540 or uploaded_img.width > 540:
                 output_size = (540, 540)
                 uploaded_img.thumbnail(output_size)
                 uploaded_img.save(self.image.path)
+
+
+@receiver(post_save, sender=Product)
+def add_sku(sender, instance, created, **kwargs):
+    """ Calls the generate_sku function in the above class """
+    if created:
+        instance.sku = instance.generate_sku()
+        instance.save()

@@ -26,7 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
         'image',
     )
 
-    # ordering = ('sku',) - uncomment once sku's are added
+    ordering = ('-pk',)
 
 
 admin.site.register(Category, CategoryAdmin)
