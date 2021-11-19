@@ -34,14 +34,14 @@
             <div class="col-12 col-sm-10 offset-sm-1 px-sm-0 col-lg-8 offset-lg-2">
                 {% if cart_items %}
                     <!-- table titles -->
-                    <div class="row mb-1">
-                        <div class="col-8 col-sm-5 col-md-6 font-weight-bold">Product Info</div>
+                    <div class="row mb-1 cart-item-width">
+                        <div class="col-8 col-sm-5 col-md-6 font-weight-bold pl-0">Product Info</div>
                         <div class="d-none d-sm-block col-sm-5 col-md-4 font-weight-bold">Quantity</div>
-                        <div class="col-4 col-sm-2 col-md-2 pl-0 font-weight-bold">Subtotal</div>
+                        <div class="col-4 col-sm-2 font-weight-bold pl-0">Subtotal</div>
                     </div>
                     <!-- cart items (LOOP) -->
                     {% for item in cart_items %}
-                        <div class="cart-item-row rounded d-flex flex-row">
+                        <div class="cart-item-row cart-item-width rounded d-flex flex-row">
                             <!-- product image (md and above) -->
                             <div class="d-none d-md-block col-md-2 p-md-0">
                                 {% if item.product.image %}
@@ -55,34 +55,32 @@
                                 {% endif %}
                             </div>
                             <!-- product details -->
-                            <div class="col-8 p-0 col-sm-5 mt-sm-2 col-md-4 my-md-auto">
-                                <div class="name-link">
-                                    <a href="{% url 'product_detail' item.item_id %}">
-                                        <p class="text-center mt-2 mt-md-0 mb-md-2 font-weight-bold">{{ item.product.name|title }}</p>
-                                    </a>
-                                </div>
+                            <div class="col-8 d-flex flex-column justify-content-around align-items-center flex-sm-row col-sm-10 col-md-8">
+                                <!-- name / info / price -->
                                 <div>
-                                    <p class="text-center mb-md-2">
-                                        {% if item.product.category %}
-                                            {{ item.product.category.friendly_name }} | 
-                                        {% endif %}
-                                        {{ item.product.abv }}% | {{ item.product.size }}ml
-                                    </p>
+                                    <div class="name-link">
+                                        <a href="{% url 'product_detail' item.item_id %}">
+                                            <p class="text-center mt-2 font-weight-bold">{{ item.product.name|title }}</p>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <p class="text-center">
+                                            {% if item.product.category %}
+                                                {{ item.product.category.friendly_name }} | 
+                                            {% endif %}
+                                            {{ item.product.abv }}% | {{ item.product.size }}ml
+                                        </p>
+                                    </div>
+                                    <div><p class="text-center mb-2">£{{ item.product.price }} each</p></div>
                                 </div>
-                                <div><p class="text-center mb-2 mb-md-0">£{{ item.product.price }} each</p></div>
-                                <div class="mb-2 d-flex flex-column align-items-center d-sm-none">
+                                <!-- quantity input -->
+                                <div class="mb-2 d-flex flex-column align-items-center">
                                     {% include 'includes/qty_adjustment_form.html' %}
                                 </div>
                             </div>
-                            <!-- quantity input -->
-                            <div class="d-none d-sm-block col-sm-5 d-sm-flex flex-sm-column align-items-sm-center justify-content-center col-md-4">
-                                {% include 'includes/qty_adjustment_form.html' %}
-                            </div>
                             <!-- subtotal -->
-                            <div class="col-4 col-sm-2 p-0 d-flex align-items-center">
-                                <div class="col text-center">
-                                    <strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong>
-                                </div>
+                            <div class="col-4 d-flex align-items-center justify-content-center col-sm-2">
+                                <strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong>
                             </div>
                         </div>
                     {% endfor %}
@@ -93,9 +91,9 @@
         </div>
         <!-- totals -->
         {% if cart_items %}
-            <div class="row text-dark-blue">
+            <div class="row total-row text-dark-blue">
                 <!-- subtotal -->
-                <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row">
+                <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row cart-item-width">
                     <div class="col-8 col-sm-10 text-right p-0 font-weight-bold">
                         <p>subtotal:</p>
                     </div>
@@ -104,7 +102,7 @@
                     </div>
                 </div>
                 <!-- delivery -->
-                <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row">
+                <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row cart-item-width">
                     <div class="col-8 col-sm-10 text-right p-0 font-weight-bold">
                         <p>delivery:</p>
                     </div>
@@ -113,7 +111,7 @@
                     </div>
                 </div>
                 <!-- total -->
-                <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row">
+                <div class="col-12 col-sm-10 offset-sm-1 p-sm-0 col-lg-8 offset-lg-2 d-flex flex-row cart-item-width">
                     <div class="col-8 col-sm-10 text-right p-0 font-weight-bold">
                         <p>total:</p>
                     </div>
@@ -121,7 +119,7 @@
                         <p class="text-center p-0 font-weight-bold">£{{ grand_total|floatformat:2 }}</p>
                     </div>
                 </div>
-                <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 p-0">
+                <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 p-0 cart-item-width">
                     <div class="col-12 col-sm-6 offset-sm-6 col-md-5 offset-md-7 p-sm-0">
                         <a href="{% url 'checkout' %}" class="btn mb-3 btn-success font-weight-bold" style="width: 100%;">
                             Checkout

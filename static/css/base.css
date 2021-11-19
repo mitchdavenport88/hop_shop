@@ -91,6 +91,22 @@ body {
     color: var(--dark-blue);
 }
 
+input[name='query']::-webkit-input-placeholder {
+    color: #AAB7C4;
+}
+
+input[name='query']::-moz-placeholder {
+    color: #AAB7C4;
+}
+
+input[name='query']:-ms-input-placeholder {
+    color: #AAB7C4;
+}
+
+input[name='query']::-ms-input-placeholder {
+    color: #AAB7C4;
+}
+
 input[name='query']::placeholder {
     color: #AAB7C4;
 }
@@ -126,8 +142,14 @@ with navbar & sticks the footer to page bottom */
 
 #footer {
     background-color: var(--dark-blue);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 1% 2.5%;
     height: 60px;
@@ -157,8 +179,14 @@ with navbar & sticks the footer to page bottom */
     height: 100%;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.4);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -211,7 +239,9 @@ with navbar & sticks the footer to page bottom */
 
 .card-img-top {
     width: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: center;
     object-position: center;
 }
 
@@ -252,7 +282,9 @@ with navbar & sticks the footer to page bottom */
 .product-detail-image {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: center;
     object-position: center;
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
@@ -262,8 +294,15 @@ with navbar & sticks the footer to page bottom */
     color: var(--white);
     padding: 20px;
     letter-spacing: 0.05rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -286,12 +325,29 @@ with navbar & sticks the footer to page bottom */
 
 .product-form-input, #id_image {
     border: 1px solid var(--dark-blue);
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     height: 40px;
     padding: 5px 10px;
     color: var(--dark-blue);
     background-color: var(--white);
     border-radius: 0.25rem;
+}
+
+.product-form-input::-webkit-input-placeholder {
+    color: #AAB7C4;
+}
+
+.product-form-input::-moz-placeholder {
+    color: #AAB7C4;
+}
+
+.product-form-input:-ms-input-placeholder {
+    color: #AAB7C4;
+}
+
+.product-form-input::-ms-input-placeholder {
+    color: #AAB7C4;
 }
 
 .product-form-input::placeholder {
@@ -310,6 +366,7 @@ select option[value=""] {
 
 .product-form-input:focus,
 .product-form-input:active {
+    -webkit-box-shadow: 0 1px 3px 0 var(--mid-blue);
     box-shadow: 0 1px 3px 0 var(--mid-blue);
 }
 
@@ -363,8 +420,19 @@ select option[value=""] {
     margin-bottom: 15px;
 }
 
+.cart-item-width {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .cart-image {
     width: 100%;
+    min-height: 120px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
 }
 
 .cart-links {
@@ -500,6 +568,22 @@ select option[value=""] {
     font-size: inherit;
 }
 
+.allauth-container input::-webkit-input-placeholder, .allauth-container-card input::-webkit-input-placeholder {
+    color: #AAB7C4;
+}
+
+.allauth-container input::-moz-placeholder, .allauth-container-card input::-moz-placeholder {
+    color: #AAB7C4;
+}
+
+.allauth-container input:-ms-input-placeholder, .allauth-container-card input:-ms-input-placeholder {
+    color: #AAB7C4;
+}
+
+.allauth-container input::-ms-input-placeholder, .allauth-container-card input::-ms-input-placeholder {
+    color: #AAB7C4;
+}
+
 .allauth-container input::placeholder,
 .allauth-container-card input::placeholder {
     color: #AAB7C4;
@@ -552,5 +636,17 @@ select option[value=""] {
 @media only screen and (max-width: 320px) {
     .content-container {
         padding-top: 118px;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .total-row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
     }
 }
