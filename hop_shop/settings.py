@@ -14,8 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 
-if os.path.exists("env.py"):
-    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -181,6 +179,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
     # Bucket Configuration
     AWS_STORAGE_BUCKET_NAME = 'hop-shop'
     AWS_S3_REGION_NAME = 'eu-west-2'
