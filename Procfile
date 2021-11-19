@@ -1,0 +1,1 @@
+web: gunicorn hop_shop.wsgi:application
