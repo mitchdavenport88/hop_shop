@@ -9,7 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     {% endblock %}
 
-    {% block extra_meta %}{% endblock %}
+    {% block extra_meta %}
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{% static 'icons/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'icons/site.webmanifest' %}">
+    {% endblock %}
     
     {% block corecss %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
