@@ -69,15 +69,16 @@ class Product(models.Model):
 
     # Code for image resizing was found here and edited accordingly
     # https://www.youtube.com/watch?v=CQ90L5jfldw
-    def save(self):
+    # https://stackoverflow.com/questions/18215989/resize-thumbnails-django-heroku-backend-doesnt-support-absolute-paths
+    def save(self, *args, **kwargs):
         # Resizes image uploaded
-        super().save()
+        super().save(*args, **kwargs)
         if self.image:
-            uploaded_img = Image.open(self.image.path)
+            uploaded_img = Image.open(self.image)
             if uploaded_img.height > 540 or uploaded_img.width > 540:
                 output_size = (540, 540)
                 uploaded_img.thumbnail(output_size)
-                uploaded_img.save(self.image.path)
+                uploaded_img.save(self.image.name)
 
 
 @receiver(post_save, sender=Product)
