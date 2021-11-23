@@ -1,108 +1,112 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Family Feasts
 
-Welcome mitchdavenport88,
+### Milestone Project Four
+Over the past couple of years the UK has had a craft beer boom with its popularity never being higher. The market for craft beers is now a saturated, highly competitive one with new breweries and retailers specialising in it appearing all the time. As demand grows, tastes change and the fact that consumers now expect a greater variety of choice has made bottle shops very popular.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The Hop Shop is an e-commerce store that is tapping into this demand. They'll offer numerous types of beers from all over Europe to be purchased conveniently, all from one place satisfying the everyday beer aficionado. 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Demo
+The live site can be viewed here - [The Hop Shop](https://hop-shop.herokuapp.com/).
 
-## Gitpod Reminders
+GitHub repository can be viewed here - [mitchdavenport88/hop_shop](https://github.com/mitchdavenport88/hop_shop).
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+![Site Mockup](readme-docs/screenshots/am-i-responsive2.jpg)
 
-`python3 -m http.server`
+## UX
+<!-- ### Strategy -->
 
-A blue button should appear to click: _Make Public_,
+### User Stories
+As a shopper I'd like to:
+* View a selection of products and select those I wish to purchase.
+* Look at individual product details in order to consolidate my decision on whether to purchase the item or not.
+* Filter products based on their type or where they originate from.
+* Sort products by price, strength or size.
+* To search for products by using keywords.
+* Add items to the cart to purchase a later point.
+* Easily view the carts contents and the number of items within it.
+* Be given the ability to amend the quantity of items within the cart or remove items completely.
+* Be rewarded with free delivery if I’m buying a decent amount of products.
+* Checkout, pay and complete my order easily.
+* Have order confirmation once my order has been completed.
+* Navigate around the site easily and the site to be user friendly.
+* Receive feedback whilst interacting with the site.
+* Do all of the above regardless of what device I’m using.
 
-Another blue button should appear to click: _Open Browser_.
+As a returning user I'd like:
+* To sign up and register for an account easily. 
+* To login and logout easily.
+* To receive email confirmation of registration and have the ability to recover forgotten passwords.
+* A personalised user profile where I can see my order history and set my default delivery information if desired.
+* Access to a wishlist where favourites can be added / removed so I can easily purchase them at a later date.
+* To read beer related articles as I’m a regular consumer of beer and I’d find a blog of interest.
+* The ability to comment and interact with other users on the blog posts.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+As the site owner / admin I want:
+* The ability to add new products to the store.
+* To be able to edit and remove products from the store.
+* The ability to create and post new articles to the blog.
+* To be able to edit and remove existing posts from the blog.
 
-A blue button should appear to click: _Make Public_,
+<!-- ### Scope - functionality -->
 
-Another blue button should appear to click: _Open Browser_.
+<!-- ### Scope - content -->
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<!-- ### Structure -->
 
-To log into the Heroku toolbelt CLI:
+### Skeleton
+Home - [desktop](readme-docs/wireframes/home(desktop).png) | 
+[tablet](readme-docs/wireframes/home(tablet).png) | 
+[mobile](readme-docs/wireframes/home(phone).png).
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Products - [desktop](readme-docs/wireframes/products(desktop).png) | 
+[tablet](readme-docs/wireframes/products(tablet).png) | 
+[mobile](readme-docs/wireframes/products(phone).png).
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+Product detail - [desktop](readme-docs/wireframes/product-detail(desktop).png) | 
+[tablet](readme-docs/wireframes/product-detail(tablet).png) | 
+[mobile](readme-docs/wireframes/product-detail(phone).png).
 
-------
+Add / edit product - [desktop](readme-docs/wireframes/edit-add-product(desktop).png) | 
+[tablet](readme-docs/wireframes/edit-add-product(tablet).png) | 
+[mobile](readme-docs/wireframes/edit-add-product(phone).png).
 
-## Release History
+Cart - [desktop](readme-docs/wireframes/cart(desktop).png) | 
+[tablet](readme-docs/wireframes/cart(tablet).png) | 
+[mobile](readme-docs/wireframes/cart(phone).png).
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Checkout - [desktop](readme-docs/wireframes/checkout(desktop).png) | 
+[tablet](readme-docs/wireframes/checkout(tablet).png) | 
+[mobile](readme-docs/wireframes/checkout(phone).png).
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+Checkout success - [desktop](readme-docs/wireframes/checkout-success(desktop).png) | 
+[tablet](readme-docs/wireframes/checkout-success(tablet).png) | 
+[mobile](readme-docs/wireframes/checkout-success(phone).png).
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Profile - [desktop](readme-docs/wireframes/profile(desktop).png) | 
+[tablet](readme-docs/wireframes/profile(tablet).png) | 
+[mobile](readme-docs/wireframes/profile(phone).png).
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Blog - [desktop](readme-docs/wireframes/blog(desktop).png) | 
+[tablet](readme-docs/wireframes/blog(tablet).png) | 
+[mobile](readme-docs/wireframes/blog(phone).png).
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+Blog post / article - [desktop](readme-docs/wireframes/blog-post(desktop).png) | 
+[tablet](readme-docs/wireframes/blog-post(tablet).png) | 
+[mobile](readme-docs/wireframes/blog-post(phone).png).
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+Wishlist - [desktop](readme-docs/wireframes/wishlist(desktop).png) | 
+[tablet](readme-docs/wireframes/wishlist(tablet).png) | 
+[mobile](readme-docs/wireframes/wishlist(phone).png).
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+Allauth templates - [desktop](readme-docs/wireframes/all-auth-template(desktop).png) | 
+[tablet](readme-docs/wireframes/all-auth-template(tablet).png) | 
+[mobile](readme-docs/wireframes/all-auth-template(phone).png).
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Surface
+The Hop Shop is built using Bootstraps grid system. I’ve used a combination of containers, rows and columns along with the built in flexbox capabilities to position content as well as making each page responsive at all breakpoints. Another positive to using this grid system is that it’s allowed me to keep the layout of pages consistent throughout.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Pages have a similar layout of page title followed by its content. Some pages contain a lot of information (such as the product pages) so in order not to overpower the user with a lot of information at once products are displayed via cards. These cards show just the basic information and link to the individual product page. Where the use of cards wasn’t applicable (such as the individual product pages and pages that feature forms) I broke information up by using block colour and columns. Doing so ties in with the overall aesthetic of the site, adds some space between information and forms where appropriate whilst remaining visually appealing and responsive.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+I found a suitable colour palette using [Coolors](https://coolors.co/). I found a suitable colour palette using Coolors. The scheme is a combination of Oxford Blue (#061A40) and Celadon Blue (#1A759F) that work well together, work well with white text and gives the site the professional, modern aesthetic I was after. I decided that buttons for adding, updating and checking out were to use Bootstraps success class as this green colour is more associated with actions of this type. For delete functions I used Bootstraps danger class for the same reasoning. The Google font Montserrat is used throughout. I used it for just the logo initially and it worked really well so I decided to use it everywhere else. I feel it works well with the colour scheme, fits in with the aesthetic created and more importantly it is easy to read.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+![Coolors - color palette](readme-docs/screenshots/color-palette.jpg)
