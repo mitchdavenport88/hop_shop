@@ -160,3 +160,41 @@ Pages have a similar layout of page title followed by its content. Some pages co
 I found a suitable colour palette using [Coolors](https://coolors.co/). The scheme is a combination of Oxford Blue (#061A40) and Celadon Blue (#1A759F) that work well together, work well with white text and gives the site the professional, modern aesthetic I was after. I decided that buttons for adding, updating and checking out were to use Bootstraps success class as this green colour is more associated with actions of this type. For delete functions I used Bootstraps danger class for the same reasoning. The Google font Montserrat is used throughout. I used it for just the logo initially and it worked really well so I decided to use it everywhere else. I feel it works well with the colour scheme, fits in with the aesthetic created and more importantly it is easy to read.
 
 ![Coolors - color palette](readme-docs/screenshots/color-palette.jpg)
+
+## Database
+
+![Database schema](readme-docs/screenshots/db-diagram.png)
+
+## Technologies
+### Languages:
+* HTML.
+* CSS.
+* JavaScript.
+* Python.
+
+### Databases:
+* SQLite – Development database provided by Django.
+* PostgreSQL – Production database provided via Heroku.
+
+### Frameworks, libraries and tools:
+* Django. Python web framework with external libraries.
+    * External libraries are visible in the requirements.txt file.
+* [jQuery.](https://jquery.com/) JavaScript library.
+* Gitpod (IDE).
+* Git and GitHub. Used for version control and hosting my repository.
+* [Heroku.](https://id.heroku.com/) Used to host my site.
+* [AWS S3 Bucket.](https://aws.amazon.com/) Cloud storage for media and static files used by Heroku.
+* [Stripe.](https://stripe.com/gb) Online payment processing for internet businesses used to receive payments. 
+* [Font Awesome.](https://fontawesome.com/) Adds icons throughout the site to increase UX.
+* [Bootstrap.](https://getbootstrap.com/) Grid layout, responsive design and basic styling.
+* [Google fonts.](https://fonts.google.com/specimen/Rubik) Montserrat was imported and used throughout.
+* [Favicon.io.](https://favicon.io/) Created favicon's, which are visible in browser tabs and the bookmarks bar.
+* [Balsamiq.](https://balsamiq.com/) Programme used for drawing the wireframes.
+* [RandomKeygen.](https://randomkeygen.com/) Secure password and keygen generator used for secret key.
+* [Am I responsive?](http://ami.responsivedesign.is/) Gives a visual representation of how the website looks on different devices. Also used to produce the mock-up shown above.
+* [Dbdiagram.io.](https://dbdiagram.io/home) Used to draw entity-relationship diagram above showing relationships within my database.
+* [TinyPNG.](https://tinypng.com/) Reduces file size of the image files used.
+* [AutoPrefixer.](https://autoprefixer.github.io/) Adds vendor prefixes to CSS code for use on additional browsers.
+
+## Testing
+Separate testing document can be found here - [testing documentation.](TESTING.md)
