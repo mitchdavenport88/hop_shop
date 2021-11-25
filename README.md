@@ -1,4 +1,4 @@
-# Family Feasts
+# The Hop Shop
 
 ### Milestone Project Four
 Over the past couple of years the UK has had a craft beer boom with its popularity never being higher. The market for craft beers is now a saturated, highly competitive one with new breweries and retailers specialising in it appearing all the time. As demand grows, tastes change and the fact that consumers now expect a greater variety of choice has made bottle shops very popular.
@@ -16,7 +16,7 @@ GitHub repository can be viewed here - [mitchdavenport88/hop_shop](https://githu
 ### Strategy
 The aim is to create a user-friendly e-commerce store based around controlling a centrally owned dataset, which I will be building. As an e-commerce store the site will be based around the business logic of being able to browse and select items to buy then finally completing the transaction and taking a payment.
 
-Users should be able to view products in the store both individually and collectively. They should be shown in an appropriate and clear way manner, with any user having the ability to filter or search for items by using pre-determined filters or keywords. Items will be able to be added and removed from a shopping cart and then finally paid for. Any user should be able to complete a transaction easily on The Hop Shop but users will be encouraged to register in order to have access to their own profile where order history is stored and default delivery information can be saved. The ability to use a wishlist function will also only be given to registered users as well as the ability to post on The Hop Shops blog posts. In addition to this the store owner (admin) should be able to add, edit and remove both products and blog posts conveniently from the frontend.
+Users should be able to view products in the store both individually and collectively. They should be shown in an appropriate and clear way, with any user having the ability to filter or search for items by using pre-determined filters or keywords. Items will be able to be added and removed from a shopping cart and then finally paid for. Any user should be able to complete a transaction easily on The Hop Shop but users will be encouraged to register in order to have access to their own profile where order history is stored and default delivery information can be saved. The ability to use a wishlist function will also only be given to registered users as well as the ability to comment on The Hop Shops blog posts. In addition to this the store owner (admin) should be able to add, edit and remove both products and blog posts conveniently from the frontend.
 
 ### User Stories
 As a shopper I'd like to:
@@ -41,7 +41,7 @@ As a returning user I'd like:
 * To receive email confirmation of registration and have the ability to recover forgotten passwords.
 * A personalised user profile where I can see my order history and set my default delivery information if desired.
 * Access to a wishlist where favourites can be added / removed so I can easily purchase them at a later date.
-* To read beer related articles as I’m a regular consumer of beer and I’d find a blog of interest.
+* To read beer related articles as I’m a regular consumer of beer and I’d find a blog interesting.
 * The ability to comment and interact with other users on the blog posts.
 
 As the site owner / admin I want:
@@ -195,6 +195,9 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 * [Dbdiagram.io.](https://dbdiagram.io/home) Used to draw entity-relationship diagram above showing relationships within my database.
 * [TinyPNG.](https://tinypng.com/) Reduces file size of the image files used.
 * [AutoPrefixer.](https://autoprefixer.github.io/) Adds vendor prefixes to CSS code for use on additional browsers.
+* W3C [HTML](https://validator.w3.org/) & [CSS](https://jigsaw.w3.org/css-validator/) validators.
+* [JSHint.](https://jshint.com/) JavaScript validator.
+* [PEP8 online.](http://pep8online.com/) Checks python code meets PEP8 requirements.
 
 ## Testing
 Separate testing document can be found here - [testing documentation.](TESTING.md)

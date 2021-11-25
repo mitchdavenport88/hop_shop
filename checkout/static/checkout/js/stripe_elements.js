@@ -118,5 +118,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function() {
         // reloads page, error message displays in toast, order is not taken!
         location.reload();
-    })
+    });
 });

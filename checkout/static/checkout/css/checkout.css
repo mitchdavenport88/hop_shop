@@ -20,6 +20,7 @@ hr {
 
 .StripeElement,
 .stripe-style-input {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     height: 40px;
     padding: 5px 10px;
@@ -32,7 +33,28 @@ hr {
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
+    -webkit-box-shadow: 0 1px 3px 0 var(--mid-blue);
     box-shadow: 0 1px 3px 0 var(--mid-blue);
+}
+
+.stripe-style-input::-webkit-input-placeholder, .StripeElement::-webkit-input-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
+}
+
+.stripe-style-input::-moz-placeholder, .StripeElement::-moz-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
+}
+
+.stripe-style-input:-ms-input-placeholder, .StripeElement:-ms-input-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
+}
+
+.stripe-style-input::-ms-input-placeholder, .StripeElement::-ms-input-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
 }
 
 .stripe-style-input::placeholder,
@@ -69,9 +91,18 @@ select option[value=""] {
 
 .loading-spinner {
     color: var(--white);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin: 0;
     height: 100%;

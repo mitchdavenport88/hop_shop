@@ -12,6 +12,7 @@
 }
 
 .profile-form-input {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     height: 40px;
     padding: 5px 10px;
@@ -23,7 +24,28 @@
 
 .profile-form-input:focus,
 .profile-form-input:active {
+    -webkit-box-shadow: 0 1px 3px 0 var(--mid-blue);
     box-shadow: 0 1px 3px 0 var(--mid-blue);
+}
+
+.profile-form-input::-webkit-input-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile-form-input::-moz-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile-form-input:-ms-input-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile-form-input::-ms-input-placeholder {
+    color: #AAB7C4;
+    font-family: "Montserrat", sans-serif;
 }
 
 .profile-form-input::placeholder {
