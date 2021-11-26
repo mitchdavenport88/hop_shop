@@ -21,11 +21,11 @@
         </li>
         <!-- by style -->
         <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link" href="#" id="shop-link" data-toggle="dropdown"
+            <a class="font-weight-bold nav-link" href="#" id="style-link" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Beers by Style
             </a>
-            <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
+            <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="style-link">
                 {% for category in context_categories %}
                     <a href="{% url 'products' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
                 {% endfor %}
@@ -33,11 +33,11 @@
         </li>
         <!-- by country -->
         <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link" href="#" id="shop-link" data-toggle="dropdown"
+            <a class="font-weight-bold nav-link" href="#" id="country-link" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Beers by Country
             </a>
-            <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="shop-link">
+            <div class="dropdown-menu border-0 dropdown-menu-box" aria-labelledby="country-link">
                 {% for country in context_countries %}
                     <a href="{% url 'products' %}?country={{ country.name }}" class="dropdown-item">{{ country.friendly_name }}</a>
                 {% endfor %}

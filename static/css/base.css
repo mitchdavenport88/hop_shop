@@ -117,7 +117,8 @@ input[name='query']::placeholder {
 
 /* Code for button counter was found on the following and edited accordingly
 https://stackoverflow.com/questions/51304169/how-to-put-the-number-at-top-right-corner-of-cart-icon */
-#cart-count {
+#cart-count,
+#cart-count-mobile {
     font-size: 0.6rem;
     vertical-align: top;
     margin-left: -25%;

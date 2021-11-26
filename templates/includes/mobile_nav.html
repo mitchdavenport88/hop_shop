@@ -22,7 +22,7 @@
     </li>
     <!-- user logic -->
     <li class="list-inline-item dropdown">
-        <a class="nav-link nav-link-logo d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown"
+        <a class="nav-link nav-link-logo d-block d-lg-none" href="#" id="user-options-mobile" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </a>
-        <div class="dropdown-menu dropdown-menu-box" aria-labelledby="user-options">
+        <div class="dropdown-menu dropdown-menu-box" aria-labelledby="user-options-mobile">
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                 <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
@@ -61,7 +61,7 @@
                 <div>
                     <i class="fas fa-shopping-cart"></i>
                     {% if product_count > 0 %}
-                        <span class="badge" id="cart-count">{{ product_count }}</span>
+                        <span class="badge" id="cart-count-mobile">{{ product_count }}</span>
                     {% endif %}
                 </div>
             </div>

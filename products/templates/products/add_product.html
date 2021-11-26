@@ -14,7 +14,6 @@
         <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
             {% csrf_token %}    
             <div class="row product-form">
-                <!-- col 1 -->
                 <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
                     {{ form.name | as_crispy_field }}
                     {{ form.category | as_crispy_field }}
@@ -23,7 +22,6 @@
                     {{ form.size | as_crispy_field }}
                     {{ form.price | as_crispy_field }}
                 </div>
-                <!-- col 2 -->
                 <div class="col-12 col-sm-10 offset-sm-1 col-md-5 offset-md-0 col-lg-4">
                     {{ form.description | as_crispy_field }}
                     {{ form.image | as_crispy_field }}
@@ -43,7 +41,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];
             $('#filename').text(`Image selected: ${file.name}`);

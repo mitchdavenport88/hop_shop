@@ -9,6 +9,7 @@ The live site can be viewed here - [The Hop Shop](https://hop-shop.herokuapp.com
 ## Testing
 My code has been put through the following:
 
+* W3C HTML validation.
 * CSS AutoPrefixer.
-* W3C CSS validation. No errors found.
+* W3C CSS validation.
 * JSHint JavaScript validation.
