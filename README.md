@@ -201,3 +201,34 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 
 ## Testing
 Separate testing document can be found here - [testing documentation.](TESTING.md)
+
+## Deployment
+### Cloning
+You can clone a repository so that it can be worked on locally in an IDE such as VSCode by following these steps:
+1. Log in to GitHub and navigate to the repository you wish to clone.
+2. Click the button that reads **code**. This button is situated to the left of the green Gitpod button near the top of the page.
+3. To clone the repository using HTTPS, copy the link shown whilst HTTPS is selected. The link will look something like this: `https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`
+4. Open your local IDE and in the terminal navigate to the working directory of where you wish to insert the cloned directory.
+5. Type `git clone` followed by the link you copied in step 3 into the terminal, this will look something like this: `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`
+6. Press **enter** and the clone will be created in your selected / current working directory (cwd).
+7. A new `env.py` file will have to be created to include all the environment variables used throughout and should look like below.
+    * Both STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY can be found on the **Developers** dashboard once logged into Stripe.
+    * The STRIPE_WH_SECRET can be found once a new endpoint has been created in **Developers** > **Webooks**.
+        1. Click on the 'Add endpoint' button.
+        2. Enter the URL of your localhost followed by `/checkout/wh/` as your endpoint URL.
+        3. Select all events to listen to and click on the 'Add endpoint' button.
+        4. The value for STRIPE_WH_SECRET can now be found by clicking the 'reveal' link under the signing secret tab on the webhook's dashboard.
+    * Add `env.py` to the .gitignore file so it doesn’t get published in version control.
+```
+import os
+
+os.environ.setdefault(“SECRET_KEY”,  “<secret key>”)
+os.environ.setdefault(“DEVELOPMENT”, “True”)
+os.environ.setdefault(“STRIPE_PUBLIC_KEY”, “<key from stripe developers dashboard>”)
+os.environ.setdefault(“STRIPE_SECRET_KEY”, “<key from stripe developers dashboard>”)
+os.environ.setdefault(“STRIPE_WH_SECRET”, “<key from individual webhook>”)
+```
+8. You will need to reinstall all the dependencies used, you can do this by running the following `pip3 install -r requirements.txt` in the terminal.
+9. You will then need to migrate the database by typing `python3 manage.py migrate` in the terminal.
+10.	A new superuser will now need to be created, this can be done by typing `python3 manage.py createsuperuser` in the terminal and following the instructions shown.
+11. The site is now cloned… Use the command `python3 manage.py runserver` to run it.
