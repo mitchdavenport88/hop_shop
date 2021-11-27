@@ -58,10 +58,10 @@ These are the steps I went through testing my website and it's functionality.
     * Tested the call-to-action button and it sends us to the Bottle Shop as desired.
     * Checked the hover class on the button works.
     * Checked the overlay box and its contents are always justified and aligned centrally.
-    * Checked that at widths below 992px only the Hop Shop logo and call-to-action buttons are visible.
+    * Checked that at widths below 992px only the Hop Shop logo and call-to-action button are visible.
 3.	Checked that the four most recently added products to the store are displayed under the hero image as part of the ‘new in…’ section.
     * All products are shown as individual cards and are suitably displayed dependant of the breakpoint.
-    * Tested the cards against the ***individual product card** test that’s shown below as part of the products test.
+    * Tested the cards against the ***individual product card test** that’s shown below as part of the products test.
 
 **Products:**
 1.	Checked that all pages are titled Bottle Shop.
@@ -87,13 +87,13 @@ Check that every card contains:
     * Details the products type | percentage | origin.
         * Tested that the products type and origin names act as links to the products page and apply a filter to the results shown based upon the category clicked. 
     * Show the products price.
-    * The add to cart button and quantity selector appear at the bottom.
-        * See that a quantity is shown in the box (default number should be 1).
-        * Test that the + and – buttons increase or decrease the number.
+    * The add to cart button and quantity selector appear at the bottom of the card.
+        * Sen that a quantity is shown in the box (default number should be 1).
+        * Tested that the + and – buttons increase or decrease the number.
             * Checked that + gets disabled at 99.
             * Checked that - gets disabled at 1.
             * Tested that numbers outside this range can’t be added manually.
-        * Pressed the add button to check that the correct quantity of the item has been added to the cart.
+        * Pressed the add button to check that the correct quantity of the item gets added to the cart.
             * Seen that a toast message appears confirming this addition.
             * The toast shows a preview of the cart.
             * Checked the cart icon in the navigation bar updates accordingly.
@@ -102,19 +102,19 @@ Check that every card contains:
     * Checked that for registered users a heart icon appears in the top right of each card, on top of the image. This indicates that it can be added to / removed from the wishlist.
         * As a heart outline indicates the item is not on the list I tested that clicking it adds the item to the wishlist and then the icon appeared solid. 
         * As a solid heart indicates the item is already on the list I tested that clicking it removes the item from the wishlist and the icon is now an outline.
-        * Seen that the hover class works.
+        * Test the hover class works.
         * Checked that the toast message appears confirming whether it’s been added or removed from the list.
 
 **Product detail page:**
 1. Checked that the correct product has been loaded.
 2. Check that the products name and size is shown at the top of the page as the page’s title.
 3. Checked that all relevant information has been loaded and is displayed as expected.
-4. Check the card according to the *individual product card test shown in the products test above as the results and functions are similar.
+4. Check the card according to the ***individual product card test** shown in the products test above as the results and functions are similar.
     * Checked that the product description is displayed as well as all the other information specified in the test.
 5. Checked that on screen widths of below 576px the card adapts with the products information now being displayed underneath the products image but still in a card format.
 6. Seen that the appropriate buttons based on the user’s registration status appear below underneath the product information:
     * The Continue Shopping button appears for all users underneath the products card and this takes me back to the Bottle Shop.
-    * See that the edit and delete buttons appear for admin only.
+    * Check that the edit and delete buttons appear for admin only.
         * Checked the edit product button opens the edit product form.
         * Checked the delete product button triggers the deletion modal.
     * Checked that all hover classes work.
@@ -123,7 +123,7 @@ Check that every card contains:
 1.	Checked that at the top of the page a banner informing the user how much more they need to spend to qualify for free delivery shows (if applicable).
     * Checked that if items in the cart equate to over £30 then the user is informed they’ve qualified for free delivery.
 2.	Checked the page title also displays the current count of items in the cart.
-3.	A Continue Shopping button appears underneath the title taking users back to the Bottle Shop.
+3.	A Continue Shopping button appears underneath the title taking me back to the Bottle Shop.
 4.	Checked that if the cart is empty a message relaying this appears.
     * Seen that the page title reads just ‘My Cart’.
 5.	Checked that if items do exist in the cart then each individual item line has its own row with the following details:
@@ -138,8 +138,8 @@ Check that every card contains:
             * Checked that - gets disabled at 1.
         * Pressed the update link:
             * Seen that the quantity in the cart has changed to that chosen.
-            * Seen the toast message appears confirming this change.
-            * Checked the rows subtotal adjusts accordingly.
+            * Seen the toast message confirming this change.
+            * Checked the rows subtotal has adjusted accordingly.
             * Checked the overall totals below adjust.
             * Checked the free next day delivery banner adjusts (if applicable).
         * Pressed the remove link:
@@ -153,7 +153,7 @@ Check that every card contains:
 
 **Checkout:**
 1.	Tested that each page is fully responsive and everything stacks on top of one another at widths below 768px.
-2.	Checked that the order summary section should be reflective of the cart page that we’ve just been on.
+2.	Checked that the order summary section is reflective of the cart page that I’ve just been on.
     * Checked that the order summary title has an item count next to it.
     * Checked each line item is listed and matches that of that what was in the cart.
     * Checked that the subtotal, delivery and total all match too.
@@ -205,3 +205,160 @@ Check that every card contains:
     * If box is ticked then existing information is overwritten.
     * If it’s left unticked then nothing gets saved.
 7.	Checked that the page is responsive and everything stacks on top on one another at widths below 768px.
+
+**Profile:**
+1.	Checked the page is only accessible to registered users.
+2.	Checked that the user’s username appears in the title.
+3.	Seen that the page is split into two sections:
+    * Saved delivery information form.
+        * Form is made up of five input fields:  address, town or city, county, postcode and country. None of these are required.
+        * Checked that if the user has default delivery information already saved to their account then the form should be pre-populated with this.
+        * Checked that if the user has no default delivery information saved to their account then the form should be blank showing the placeholders only. 
+        * Clicked the update info button to test it submits the form.
+            * A toast appears confirming this information has been saved.
+    * Order history.
+        * Checked that the details of all previous orders made by that user are shown.
+            * Date and time of order is shown.
+            * Order number is displayed.
+            * Order total is shown.
+        * The order number acts as a link to the order’s confirmation page.
+            * When clicked the order confirmation page loads and all details are correct and present.
+            * A toast message appears to say this was a past order.
+            * Tested the back to profile button works.
+4.	Checked that the page is responsive and everything stacks on top on one another at widths below 768px.
+
+**Wishlist:**
+1.	Checked the page is only accessible to registered users.
+2.	Checked that the user’s username appears in the title.
+3.	Checked that if the wishlist contains no products then a message relaying this appears.
+    * A call-to-action button should also display and takes me to the Bottle Shop.
+4.	Checked that if the wishlist does contain products then they are displayed on the page as cards.
+5.	Tested the cards against the ***individual product card test** that’s shown as part of the products test.
+6.	Tested that by clicking a heart (on the cards) anywhere on the site does what is expected.
+7.	Clicking a heart when on the wishlist page removes it from the list as expected.
+8.	Checked that the cards are displayed as intended at varying breakpoints:
+    * In four columns on screen widths above 1200px.
+    * In three columns on screen widths between 992px and 1200px.
+    * In two columns on screen widths between 768px and 992px.
+    * In one column on screen widths below 768px.
+
+**Blog:**
+1.	Checked that the page loads as expected and is titled Blog.
+2.	Checked that each post within the blog is represented via a card similar to products on the site.
+3.	Checked that each card contains:
+    * An image that’s associated with the post.
+        * Checked this image adjusts dependant on screen width.
+        * Checked that this image also links to the blog post.
+    * The date and time posted.
+    * The article’s title.
+    * A brief preview of the post.
+    * A button that links to the blog post.
+        * Checked hover class works.
+4.	Checked that the cards are displayed as intended at varying breakpoints:
+    * In three columns on screen widths above 992px.
+    * In two columns on screen widths between 576px and 992px.
+    * In one column on screen widths below 576px.
+
+**Blog Posts:**
+1.	Checked that the correct article has been loaded.
+2.	Checked that all information has been loaded and is displayed as expected.
+3.	Checked that the title of the article is shown at the top of the page. Followed by:
+    * An image that adjusts dependant on screen width.
+    * The date and time that the post was posted underneath the image.
+    * The article itself.
+    * Followed by the author at the bottom of the article.
+4.	Checked that the appropriate buttons based on the user’s registration status appear below all this.
+    * Checked the Back to blog’s button appears for all users and this takes me back to the blog page.
+    * Seen that the edit and delete buttons appear for admin only.
+        * Checked the edit post button opens the edit blog form.
+        * Checked the delete post button triggers the deletion modal.
+    * Checked that all the hover classes work.
+5.	Checked that the comments section is different dependent on the user’s registration status.
+    * If unregistered:
+        * Checked the comment box is hidden and is replaced with links to sign up or login.
+        * Checked these links work.
+        * Checked that other user comments are still displayed.
+    * If registered:
+        * Checked that the comment box is shown along with a button to post a comment.
+        * Checked the placeholder is visible.
+        * Checked that the form can’t be submitted empty.
+        * Checked that I can’t post anything over the 500 character limit.
+            * Checked the error toast message appears stating this.
+            * Checked that a validation message appears underneath the comment box.
+        * Checked that if a comment is valid it gets posted.
+            * Checked a toast message appears stating this.
+            * Seen that the comment appears below.
+6.	Checked that if the post has yet to be commented on that a message stating this appears.
+7.	Checked that the page is responsive and everything gets displayed correctly at all breakpoints.
+
+**Add product:**
+1.	Checked that the form is accessible by admin only.
+2.	Checked that the form is accessible via the link in the navigation bar (admin only).
+3.	Checked the number of fields, 8 in total: name, category, country, abv, size, price, description and image. Check all have a relevant label.
+4.	Tested the buttons:
+    * Pressed products, this takes me to the Bottle Shop.
+    * Pressed the choose image button and it does as it should.
+    * Pressed add product to try and send an empty form. Input required error message appears.
+5.	Tested that the form validated the inputted data correctly. The form will then only send if all fields marked with a * are filled in.
+    * Checked that only numbers can be entered into the ABV, size and price fields.
+    * Checked a category name can be selected from the dropdown menu and is populated with categories from the categories model.
+    * Checked a country can be selected from the dropdown menu and is populated with countries from the countries model.
+6.  On successful submission of the form I get redirected to the newly created products detail page.
+    * A toast appears confirming that the product has been added.
+7.	Checked that the product now appears in the database.
+    * Checked the item has automatically been given a SKU number.
+8.	Checked that the item now appears throughout the site.
+
+**Edit product:**
+1.	Checked that the form is accessible by admin only.
+2.	Checked that the form is accessible via the edit button on the blog article page (admin only).
+3.	Toast message confirms that you’re now editing the product.
+4.	The form is the same as the one that’s found on the add product page but all fields are pre-populated with the existing data.
+5.	Tested the buttons:
+    * Pressed products, this takes me to the Bottle Shop.
+    * Pressed the choose image button and it does as it should.
+    * Pressed update product, the updated product loads and a success toast confirms the update.
+6.	Tested that the form still validated the inputted data correctly. The form will then only send if all fields that are required are filled in.
+7.	On successful completion of the form I get redirected to the product in questions page, which shows the updated information.
+
+**Add blog post:**
+1.	Checked that the form is accessible by admin only.
+2.	Checked that the form is accessible via the link in the navigation bar (admin only).
+3.	Checked the number of fields, 3 in total: title, image, content. Check all have a relevant label.
+4.	Tested the buttons.
+    * Pressed back to blogs - takes me to the blogs page.
+    * Pressed choose image button and it does as it should.
+    * Pressed add blog post to try and send an empty form. Input required error message appears.
+5.	Tested that the form validated the inputted data correctly. The form will then only send if all fields are filled in.
+6.	On successful completion of the form I get redirected to the newly created blog article page, which will show the post just posted.
+
+**Edit blog post:**
+1.	Checked that the form is accessible by admin only.
+2.	Checked that the form is accessible via the edit button on the blog article page (admin only).
+3.	Toast message confirms that you’re now editing the blog post.
+4.	The form is the same as the one that’s found on the add blog post page but all fields are pre-populated with the existing data.
+5.	Tested the buttons.
+    * Pressed back to post this takes me to the blog article.
+    * Pressed choose image button and it does as it should.
+    * Pressed update blog post, the updated article loads and a success toast confirms the update.
+6.	Tested that the form still validated the inputted data correctly. The form will then only send if all fields are filled in.
+7.	Tested that if the page title is amended then the pages slug is also changed.
+8.	Checked that comments still appear for that post (if applicable).
+9.	On successful completion of the form I get redirected to the newly updated article page.
+
+**Delete functions:**
+* Checked that all deletion buttons prompt the “are you sure” modal to appear to proceed with the deletion.
+    * The close button closes the modal with no action taken.
+    * The delete button triggers the deletion process.
+* Deleting a blog post:
+    * Checked that the function can be performed by admin only.
+    * When a post is deleted I’m redirected back to the blog page.
+    * A toast message appears confirming the deletion.
+    * Checked that it can no longer be found on the site.
+    * Checked that it can no longer be found in the database.
+* Deleting a product:
+    * Checked that the function can be performed by admin only.
+    * When a product is deleted I’m redirected back to the Bottle Shop page.
+    * A toast message appears confirming the deletion.
+    * Checked that it can no longer be found on the site.
+    * Checked that it can no longer be found in the database.
