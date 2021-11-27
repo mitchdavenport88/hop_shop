@@ -369,3 +369,10 @@ Whilst building my site I have been checking my progress and testing any changes
 I have physically tested my site on my iPhone 6. I have tested for responsiveness on other devices using DevTools alongside the Responsive Design Mode on Firefox. Using these tools I have tested on numerous mobile devices such as the Moto G4, Galaxy S5 and the iPhone range as well as numerous tablet devices in both landscape and portrait views.
 
 ![The Hop Shop as seen on an iPad](readme-docs/screenshots/home-ipad.jpg)
+
+## Browser compatibility
+I have physically tested my website on the following browsers and devices:
+* Chrome (desktop and iPhone).
+* Firefox (desktop).
+* Microsoft Edge (desktop).
+* Safari (iPhone).
