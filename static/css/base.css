@@ -569,19 +569,23 @@ select option[value=""] {
     font-size: inherit;
 }
 
-.allauth-container input::-webkit-input-placeholder, .allauth-container-card input::-webkit-input-placeholder {
+.allauth-container input::-webkit-input-placeholder,
+.allauth-container-card input::-webkit-input-placeholder {
     color: #AAB7C4;
 }
 
-.allauth-container input::-moz-placeholder, .allauth-container-card input::-moz-placeholder {
+.allauth-container input::-moz-placeholder,
+.allauth-container-card input::-moz-placeholder {
     color: #AAB7C4;
 }
 
-.allauth-container input:-ms-input-placeholder, .allauth-container-card input:-ms-input-placeholder {
+.allauth-container input:-ms-input-placeholder,
+.allauth-container-card input:-ms-input-placeholder {
     color: #AAB7C4;
 }
 
-.allauth-container input::-ms-input-placeholder, .allauth-container-card input::-ms-input-placeholder {
+.allauth-container input::-ms-input-placeholder,
+.allauth-container-card input::-ms-input-placeholder {
     color: #AAB7C4;
 }
 
