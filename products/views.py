@@ -175,6 +175,8 @@ def wishlist(request):
     return render(request, 'products/wishlist.html', context)
 
 
+# Code for the wishlist toggle function was found on the following video
+# and edited accordingly - https://www.youtube.com/watch?v=OgA0TTKAtqQ&t=2403s
 @login_required
 def wishlist_toggle(request, product_id):
     """

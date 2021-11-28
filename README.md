@@ -184,7 +184,8 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 * Git and GitHub. Used for version control and hosting my repository.
 * [Heroku.](https://id.heroku.com/) Used to host my site.
 * [AWS S3 Bucket.](https://aws.amazon.com/) Cloud storage for media and static files used by Heroku.
-* [Stripe.](https://stripe.com/gb) Online payment processing for internet businesses used to receive payments. 
+* [Stripe.](https://stripe.com/gb) Online payment processing for internet businesses used to receive payments.
+* [Gmail.]() I've hooked my deployed site up to Gmail's smtp server in order to send emails. 
 * [Font Awesome.](https://fontawesome.com/) Adds icons throughout the site to increase UX.
 * [Bootstrap.](https://getbootstrap.com/) Grid layout, responsive design and basic styling.
 * [Google fonts.](https://fonts.google.com/specimen/Rubik) Montserrat was imported and used throughout.
@@ -232,3 +233,46 @@ os.environ.setdefault(“STRIPE_WH_SECRET”, “<key from individual webhook>�
 9. You will then need to migrate the database by typing `python3 manage.py migrate` in the terminal.
 10.	A new superuser will now need to be created, this can be done by typing `python3 manage.py createsuperuser` in the terminal and following the instructions shown.
 11. The site is now cloned… Use the command `python3 manage.py runserver` to run it.
+
+## Credits
+### Code
+* I used the Boutique Ado e-commerce store project that is part of the course content as a guide as I built my site. Many of the apps, models and functionality’s have been taken from this walkthrough and adapted to suit my needs.
+* I watched the following video's about creating e-commerce stores on youTube to enhance my knowledge after completing the Boutique Ado walkthrough:
+    * [Corey Schafer.](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
+    * [Dennis Ivy.](https://www.youtube.com/watch?app=desktop&v=_ELCMngbM0E)
+* This [Stack Overflow post](https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340) helped me integrate google fonts into Stripe in the stripe_elements.js file.
+* This [Stack Overflow post](https://stackoverflow.com/questions/51304169/how-to-put-the-number-at-top-right-corner-of-cart-icon) helped me with the code for the count badge found on the cart.
+* I followed these two articles by [Django Central](https://djangocentral.com/) and this video by [Codemy.com](https://www.youtube.com/watch?v=hZrlh4qU4eQ) when setting up my blog and comments section. I made changes where I saw fit to suit my requirements and also added to the code:
+    * [Blog.](https://djangocentral.com/building-a-blog-application-with-django/)
+    * [Blog comments.](https://djangocentral.com/creating-comments-system-with-django/)
+* I found out about the linebreaksbr functionality used in the blog posts [here.](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#linebreaksbr)
+* I resolved an issue causing a 500 internal server error being made by the function in my products model that resizes images if required by reading this [Stack Overflow post.](https://stackoverflow.com/questions/18215989/resize-thumbnails-django-heroku-backend-doesnt-support-absolute-paths)
+* I made the wishlist view by following a walkthrough by [Very Academy.](https://www.youtube.com/watch?v=OgA0TTKAtqQ&t=2403s) I made changes where I saw fit to suit my requirements and also added to the code.
+* I used the following documentation throughout:
+    * [Django docs.](https://docs.djangoproject.com/en/3.2/)
+    * [Allauth docs.](https://django-allauth.readthedocs.io/en/latest/index.html)
+    * [Stripe - accepting a payment docs.](https://stripe.com/docs/payments/accept-a-payment?platform=web&ui=elements#web-collect-payment-details)
+    * [jQuery docs.](https://api.jquery.com/)
+    * [Crispy forms docs.](https://django-crispy-forms.readthedocs.io/en/latest/index.html)
+* [W3schools,](https://www.w3schools.com/) [Stack Overflow](https://stackoverflow.com/) & [MDN.](https://developer.mozilla.org/en-US/) For general coding problem solving.
+
+### Content
+* [Beerwulf](https://www.beerwulf.com/en-gb) was a big inspiration to this site.
+* Home / landing page hero image - [JuniperPhoton via Unsplash.](https://unsplash.com/photos/9i2YH9vyfWQ)
+* Oktoberfest 2020 image - [Marius Oppel via Unsplash.](https://unsplash.com/photos/E53rbNwqEMI)
+* Duvel blog post image - [Ferment blog article.](https://www.beer52.com/ferment/article/1053/duvel-moortgat)
+* No product image - [freesvg.org.](https://freesvg.org/vector-graphics-of-bottle-of-beer)
+* The product descriptions were taken from the brewers websites.
+* The blog posts were taken from the following and edited accordingly to suit:
+    * [Oktoberfest 2020.](https://www.oktoberfesttours.travel/oktoberfest-2022/)
+    * [Duvel wins gold!](https://www.duvel.com/en-gb/news/duvel-wins-gold-at-brussels-beer-challenge-2018)
+
+### Acknowledgements
+* My mentor Brian Macharia for all the feedback and aiding in the planning and execution of this site.
+* Tutor support at Code Institute for their help and support when needed most.
+* README examples:
+    * [Taikatta.](https://github.com/taikatta/Mileston4-EggSellNT)
+    * [Samathaluca.](https://github.com/samathaluca/new-lazycamp)
+
+### Disclaimer
+This site has been created purely for educational purposes.
