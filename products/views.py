@@ -89,7 +89,7 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """ Add products to the store """
+    """ A view to add products to the store """
     # Allows access to superuser only
     if not request.user.is_superuser:
         messages.error(request, 'Only Hop Shop Admin have \
@@ -117,7 +117,7 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ Edit products in the store """
+    """ A view to edit products in the store """
     # Allows access to superuser only
     if not request.user.is_superuser:
         messages.error(request, 'Only Hop Shop Admin have \
@@ -148,7 +148,7 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """ Delete product from the store """
+    """ A view that deletes a selected product from the store """
     # Allows access to superuser only
     if not request.user.is_superuser:
         messages.error(request, 'Only Hop Shop Admin have \
@@ -163,6 +163,7 @@ def delete_product(request, product_id):
 
 @login_required
 def wishlist(request):
+    """ A view to show all products that are on a users wishlist """
     user_profile = get_object_or_404(UserProfile, user=request.user)
     wishlist_products = user_profile.wishlist.all()
 
@@ -176,6 +177,9 @@ def wishlist(request):
 
 @login_required
 def wishlist_toggle(request, product_id):
+    """
+    A view that adds and removes (toggles) products to the users wishlist
+    """
     product = get_object_or_404(Product, pk=product_id)
     user_profile = get_object_or_404(UserProfile, user=request.user)
 

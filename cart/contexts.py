@@ -5,6 +5,7 @@ from products.models import Product
 
 
 def cart_contents(request):
+    """ A function that adds products to the carts session """
     cart_items = []
     total = 0
     product_count = 0

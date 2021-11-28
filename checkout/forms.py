@@ -10,7 +10,7 @@ class OrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Set auto focus to the first field, remove auto-generated
+        Function sets auto-focus to the first field, removes auto-generated
         input labels and insert placeholders to replace them
         """
         super().__init__(*args, **kwargs)

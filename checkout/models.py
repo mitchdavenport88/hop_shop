@@ -33,12 +33,12 @@ class Order(models.Model):
         max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
-        """ Generate a random, unique order number using UUID """
+        """ Generates a random, unique order number using UUID """
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
         """
-        Update grand total every time a lineitem
+        Updates grand total every time a lineitem
         is added accounting for delivery costs
         """
         self.order_total = self.lineitems.aggregate(

@@ -8,7 +8,6 @@ urlpatterns = [
     path('edit/<int:product_id>/', views.edit_product, name='edit_product'),
     path('delete/<int:product_id>/', views.delete_product,
          name='delete_product'),
-    # Wishlist
     path('wishlist/', views.wishlist, name='wishlist'),
     path('wishlist_toggle/<int:product_id>/', views.wishlist_toggle,
          name='wishlist_toggle'),

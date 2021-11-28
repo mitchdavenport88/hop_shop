@@ -1,5 +1,5 @@
 from django import forms
-# imported from products app
+# Imported from products app
 from products.widgets import CustomClearableFileInput
 from .models import Comment, BlogPost
 
@@ -14,6 +14,10 @@ class BlogPostForm(forms.ModelForm):
                              widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
+        """
+        Function sets placeholders, adds auto-focus to top field
+        and assigns all fields a class
+        """
         super().__init__(*args, **kwargs)
         placeholders = {
             'title': 'Title',
@@ -37,8 +41,8 @@ class CommentForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Set auto focus to comment input field, remove
-        auto-generated input labels and insert placeholder
+        Function sets placeholder, removes auto-generated input label
+        and assigns a class
         """
         super().__init__(*args, **kwargs)
         self.fields['body'].widget.attrs['placeholder'] = (

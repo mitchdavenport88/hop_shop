@@ -9,7 +9,7 @@ from .forms import UserProfileForm
 
 @login_required
 def profile(request):
-    """ Display profile (user specific) """
+    """ A view to display profile (user specific) """
     user_profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -33,6 +33,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """ A view that displays order history (user specific) """
     order = get_object_or_404(Order, order_number=order_number)
     messages.info(request, (
         f'This is a past order confirmation for order no. {order_number}. '

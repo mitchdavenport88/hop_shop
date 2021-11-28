@@ -18,7 +18,7 @@ def blog_posts(request):
 
 
 def blog_detail(request, slug):
-    """ A view that returns individual blog posts products """
+    """ A view that returns individual blog posts """
     blog_post = get_object_or_404(BlogPost, slug=slug)
     comments = blog_post.comments.all()
     new_comment = None
@@ -52,7 +52,7 @@ def blog_detail(request, slug):
 
 @login_required
 def add_blog_post(request):
-    """ Add blog posts to the blog """
+    """ A view to add blog posts to the blog """
     # Allows access to superuser only
     if not request.user.is_superuser:
         messages.error(request, 'Only Hop Shop Admin have \
@@ -83,7 +83,7 @@ def add_blog_post(request):
 
 @login_required
 def edit_blog_post(request, slug):
-    """ Edit existing blog posts in the blog """
+    """ A view to edit existing blog posts in the blog """
     # Allows access to superuser only
     if not request.user.is_superuser:
         messages.error(request, 'Only Hop Shop Admin have \
@@ -119,7 +119,7 @@ def edit_blog_post(request, slug):
 
 @login_required
 def delete_blog_post(request, slug):
-    """ Delete existing blog posts in the blog """
+    """ A view that deletes a chosen blog post from the blog """
     # Allows access to superuser only
     if not request.user.is_superuser:
         messages.error(request, 'Only Hop Shop Admin have \

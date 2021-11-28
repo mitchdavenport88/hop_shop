@@ -69,9 +69,8 @@ class Product(models.Model):
 
     # Code for image resizing was found here and edited accordingly
     # https://www.youtube.com/watch?v=CQ90L5jfldw
-    # https://stackoverflow.com/questions/18215989/resize-thumbnails-django-heroku-backend-doesnt-support-absolute-paths
     def save(self, *args, **kwargs):
-        # Resizes image uploaded
+        """ Function resizes the image uploaded if required """
         super().save(*args, **kwargs)
         if self.image:
             uploaded_img = Image.open(self.image)

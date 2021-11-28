@@ -14,6 +14,12 @@ class ProductForm(forms.ModelForm):
                              widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
+        """
+        Function assigns the choices available in the dropdown menus,
+        sets auto-focus to the first field, removes auto-generated
+        input labels and inserts placeholders to replace them. Also
+        assigns all fields a class
+        """
         super().__init__(*args, **kwargs)
         placeholders = {
             'name': 'Name',
