@@ -25,7 +25,7 @@ As a shopper I'd like to:
 * Filter products based on their type or where they originate from.
 * Sort products by price, strength or size.
 * To search for products by using keywords.
-* Add items to the cart to purchase a later point.
+* Add items to the cart to purchase at a later point.
 * Easily view the carts contents and the number of items within it.
 * Be given the ability to amend the quantity of items within the cart or remove items completely.
 * Be rewarded with free delivery if I’m buying a decent amount of products.
@@ -155,7 +155,7 @@ Allauth templates - [desktop](readme-docs/wireframes/all-auth-template(desktop).
 ### Surface
 The Hop Shop is built using Bootstraps grid system. I’ve used a combination of containers, rows and columns along with the built in flexbox capabilities to position content as well as making each page responsive at all breakpoints. Another positive to using this grid system is that it’s allowed me to keep the layout of pages consistent throughout.
 
-Pages have a similar layout of page title followed by its content. Some pages contain a lot of information (such as the product pages) so in order not to overpower the user with a lot of information at once products are displayed via cards. These cards show just the basic information and link to the individual product page. Where the use of cards wasn’t applicable (such as the individual product pages and pages that feature forms) I broke information up by using block colour and columns. Doing so ties in with the overall aesthetic of the site, adds some space between information and forms where appropriate whilst remaining visually appealing and responsive.
+Pages have a similar layout of page title followed by its content. Some pages contain a lot of information (such as the product pages) so in order not to overpower the user with a lot of information at once, products are displayed via cards. These cards show just the basic information and link to the individual product page. Where the use of cards wasn’t applicable (such as the individual product pages and pages that feature forms) I broke information up by using block colour and columns. Doing so ties in with the overall aesthetic of the site, adds some space between information and forms where appropriate whilst remaining visually appealing and responsive.
 
 I found a suitable colour palette using [Coolors](https://coolors.co/). The scheme is a combination of Oxford Blue (#061A40) and Celadon Blue (#1A759F) that work well together, work well with white text and gives the site the professional, modern aesthetic I was after. I decided that buttons for adding, updating and checking out were to use Bootstraps success class as this green colour is more associated with actions of this type. For delete functions I used Bootstraps danger class for the same reasoning. The Google font Montserrat is used throughout. I used it for just the logo initially and it worked really well so I decided to use it everywhere else. I feel it works well with the colour scheme, fits in with the aesthetic created and more importantly it is easy to read.
 
@@ -182,7 +182,7 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 * [jQuery.](https://jquery.com/) JavaScript library.
 * Gitpod (IDE).
 * Git and GitHub. Used for version control and hosting my repository.
-* [Heroku.](https://id.heroku.com/) Used to host my site.
+* [Heroku.](https://heroku.com/) Used to host my site.
 * [AWS S3 Bucket.](https://aws.amazon.com/) Cloud storage for media and static files used by Heroku.
 * [Stripe.](https://stripe.com/gb) Online payment processing for internet businesses used to receive payments.
 * [Gmail.]() I've hooked my deployed site up to Gmail's smtp server in order to send emails. 
@@ -204,6 +204,194 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 Separate testing document can be found here - [testing documentation.](TESTING.md)
 
 ## Deployment
+### Heroku deployment
+This project is hosted by Heroku but is still deployed from the master branch of a GitHub repository. The following steps were taken to deploy this project to Heroku:
+1. Went to [Heroku](https://heroku.com/) and logged in.
+2. Created a new app by clicking **create new app** from the drop down menu labelled "new".
+3. Gave my app a name and selected the region from the dropdown menu that was closest geographically. 
+4. Clicked the **create app** button where I was directed to the dashboard for the new app.
+5. Clicked on the **resources** tab on the dashboard. Added Heroku Postgres to the app by searching and then selecting it. Then I selected the Hobby Dev – Free plan.
+6. As I didn't use fixtures to populate my development database I now created three json files, which act as fixtures and will help transfer the data across to the Postgres database.
+    * `python3 manage.py dumpdata products.Category > categories.json`
+    * `python3 manage.py dumpdata products.Country > countries.json`
+    * `python3 manage.py dumpdata products.Product > products.json`
+7. Installed dj_database_url and psycopg2-binary using `pip3 install`.
+8. In `settings.py` I imported dj_database_url at the top of the file.
+9. Then replaced the default `DATABASE` setting with:
+```
+DATABASES = {
+        'default': dj_database_url.parse(<DATABASE_URL>)
+    }
+```
+The `<DATABASE_URL>` is found in the Heroku apps **Config Vars**. It's important that you don't commit this url into version control!
+
+10. I ran migrations using `python3 manage.py migrate` to create the models in the new database.
+11. I now used the json files created in step 6 to populate the new database. I loaded them in this order as the Product model depends on both the Country and Category models.
+    * `python3 manage.py loaddata categories.json`
+    * `python3 manage.py loaddata countries.json`
+    * `python3 manage.py loaddata products.json`
+12. Then I created a new superuser, this was done by using `python3 manage.py createsuperuser` and then following the instructions shown in the terminal.
+13. Installed gunicorn using `pip3 install`.
+14. Used `pip3 freeze > requirements.txt`, this stores all our apps requirements.
+15. Created a Procfile and populated it with:
+```
+web: gunicorn <app_name>.wsgi:application
+```
+16. I logged into Heroku but this time via the terminal using `heroku login -i`.
+17. Then I used `heroku config:set COLLECTSTATIC=1 --app <app_name>` to disable static files from being collected. This is only a temporary measure.
+18. Added the hostname of the Heroku app to `ALLOWED_HOSTS` in `settings.py`
+```
+ALLOWED_HOSTS = ['<hostname>', 'localhost']
+```
+19. Returned to the Heroku dashboard, clicked on the **deploy** tab, scrolled down to the “Deployment method” section and clicked the **connect to GitHub** button. 
+20. I searched for my repository in the “Connect to GitHub” section, found it and clicked **connect**.
+21. I then enabled **Automatic Deploys**.
+22. At the top of the dashboard I selected the **settings** tab. Scrolled down to the **Config Vars** section and populated the section with the key value pairs of the following:
+    * AWS_ACCESS_KEY_ID - I get this when I set up AWS.
+    * AWS_SECRET_ACCESS_KEY - I get this when I set up AWS.
+    * DATABASE_URL - Prepopulated.
+    * DISABLE_COLLECTSTATIC - Created this during step 17.
+    * SECRET_KEY
+    * STRIPE_PUBLIC_KEY
+    * STRIPE_SECRET_KEY
+    * STRIPE_WH_SECRET
+    * USE_AWS - True
+23. I changed the default `DATABASE` setting we created in step 9 in `settings.py` so that it now retrieves the value from Heroku:
+```
+DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+```
+24. Added, committed and pushed all files via the terminal.
+25. Heroku is now set up and the app visible. It will automatically update whenever commits are pushed to Github via the IDE.
+
+<details>
+<summary>Setting up S3</summary>
+
+1. Create an [AWS](https://aws.amazon.com/) account.
+2. Navigate to the management console, search for "S3" to be taken to the S3 dashboard.
+3. Click **create bucket** button.
+    * Give it a name and select the region closest to you.
+    * Allow public access.
+4. In the bucket's properties select **static website hosting**.
+    * Select "use this bucket to host a website".
+    * Give it the default values of `index.html` and `error.html` then save.
+5. For the buckets permissions CORS configuration use:
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+6. For the buckets permissions policy:
+    * Copy the Amazon resource name (ARN) from the top of the page.
+    * Click "policy generator".
+    * Select type of policy as "S3 Bucket Policy".
+    * Allow all principals by using `*`.
+    * Set action to "GetObject".
+    * Paste in the ARN.
+    * Click **Add statement**. Then **Generate policy** and copy the json file shown.
+    * Paste this json file to bucket policy.
+        * Add `/*` at the end of the 'Resource' key.
+    * Save.
+7. For the access control list:
+    * Set list objects to everyone.
+</details>
+
+<details>
+<summary>Setting up IAM (Identity and Access Management)</summary>
+
+1. From the AWS management console, search for "IAM" to be taken to the IAM dashboard.
+2. Creating a group:
+    * Select "Groups" from the menu.
+    * Click the **Create new group** button.
+    * Name the group.
+3. Creating a policy:
+    * Select "Policies" from the menu.
+    * Click the **Create policy** button.
+    * Select the **JSON** tab and click the "import managed policy" link.
+        * Find and import **Amazon S3 Full Access**.
+    * In the 'Resource' key of the json code shown paste in the ARN from the bucket policy twice forming a list.
+        * Add `/*` to the end of one.
+    * Review the policy and give it a name and a description.
+    * **Create policy**.
+4. Attaching the policy to the group:
+    * Select "Groups" from the menu and select the group created in step 2.
+    * Click the **Attach policy** button.
+    * Select the policy created in step 3.
+    * **Attach policy**.
+5. Creating a user:
+    * Select "Users" from the menu.
+    * Click the **Add user** button.
+    * Create a user by giving them a name.
+    * Grant the programatic access and click **Next**.
+    * Select the group shown that has the policy attached.
+    * **Create user**.
+6. Download the .csv file.
+</details>
+
+<details>
+<summary>Connect Django to S3</summary>
+
+1. Install boto3 by using `pip3 install boto3`.
+2. Install django-storages by using `pip3 install django-storages`.
+3. Run `pip3 freeze > requirements.txt`.
+4. Add 'storages' to the apps list in `settings.py`.
+5. Add the values of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to **Config Vars** in Heroku.
+    * These values are in the downloaded .csv file.
+6. Delete the DISABLE_COLLECTSTATIC variable.
+7. Create a file called `custom_storages.py` and populate it like so:
+```
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+8. Add the following to `settings.py`.
+```
+if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = '<aws_bucket_name>'
+    AWS_S3_REGION_NAME = '<aws_region>'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+9. Add, commit and push all via the terminal.
+</details>
+
+<details>
+<summary>Adding and committing files</summary>
+
+I’ve been using Gitpod to write my code and using the terminal to add, commit and push code from my workspace to GitHub where it is stored remotely as shown in the course content.
+1. Typing `git add` into the terminal will move files to the staging area. You should normally do this once a couple of minor additions or changes have been made or one large change or addition has been made. `git add .` will add all files that have been modified, the full stop here means all. If I want to be more selective I can type in the file name e.g. index.html or the files pathway e.g. assets/css/style.css instead of the full stop e.g. `git add index.html`.
+2. To send these changes to the local repository we use `git commit`. Normally you'll want to include a brief description of these changes so instead use `git commit –m “ ”`. Between the “ ” write a clear, concise message detailing what this commit has done.
+3. To view the changes on Heroku or when you want to send your work to the remote repository (GitHub in this instance) then use the `git push` command. This pushes all the previous commits made to the remote repository. While deploying to Heroku we set it so it'll automatically pick up any changes pushed to our GitHub repository and once Heroku has finished building (this takes a couple of mins) it'll display the most up to date version of the site.
+</details>
+
 ### Cloning
 You can clone a repository so that it can be worked on locally in an IDE such as VSCode by following these steps:
 1. Log in to GitHub and navigate to the repository you wish to clone.
@@ -259,7 +447,7 @@ os.environ.setdefault(“STRIPE_WH_SECRET”, “<key from individual webhook>�
 ### Content
 * [Beerwulf](https://www.beerwulf.com/en-gb) was a big inspiration to this site.
 * Home / landing page hero image - [JuniperPhoton via Unsplash.](https://unsplash.com/photos/9i2YH9vyfWQ)
-* Oktoberfest 2020 image - [Marius Oppel via Unsplash.](https://unsplash.com/photos/E53rbNwqEMI)
+* Oktoberfest 2022 image - [Marius Oppel via Unsplash.](https://unsplash.com/photos/E53rbNwqEMI)
 * Duvel blog post image - [Ferment blog article.](https://www.beer52.com/ferment/article/1053/duvel-moortgat)
 * No product image - [freesvg.org.](https://freesvg.org/vector-graphics-of-bottle-of-beer)
 * The product descriptions were taken from the brewers websites.
