@@ -535,8 +535,26 @@ I have physically tested my website on the following browsers and devices:
 * A toast message will appear to confirm if the comment has been posted or not.
 * All comments are restricted to 500 characters to stop spam and essay’s being posted.
 
-<!-- ### As the site owner / admin I want:
-**""**
-**""**
-**""**
-**""** -->
+### As the site owner / admin I want:
+**"The ability to add new products to the store."**
+
+**"The ability to create and post new articles to the blog."**
+* Adding either a new product or blog post is done via a form.
+* The links to access both forms are shown in the navigation bar by clicking the profile link / icon and selecting them from the dropdown menu.
+    * These links are only visible to admin.
+    * The pages are only accessible by admin.
+* Each input field is clearly labelled and includes a placeholder. If the validation requirements aren’t met then the user is informed of this on submission.
+* On successful completion we get sent to the newly created page and the product/article can be viewed on the site.
+
+**"To be able to edit and remove products from the store."**
+
+**"To be able to edit and remove existing posts from the blog."**
+* As with adding products and blog posts, editing and removing them can only be done by admin with access to the relevant forms and functionality restricted.
+* To access the edit and delete function of a product, admin needs to navigate to the product detail page of the item and the relevant call-to-action buttons will be shown under the table as shown below.
+* To access the edit and delete function of a blog post, admin needs to navigate to the blog post in question and the edit and delete buttons will be shown underneath the article.
+* Editing either will take you to the relevant form, which will be pre-populated with the data that’s already been provided.
+    * Form fields are clearly labelled and all data entered is validated the same as when it’s intially added.
+* Deleting anything from the site is a two-step process where confirmation is needed in order to avoid any accidents.
+    * Any deletion or update is confirmed by a toast message.
+
+![Edit and delete a product buttons.](readme-docs/screenshots/user-stories-screenshot11.jpg)
