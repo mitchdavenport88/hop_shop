@@ -88,7 +88,7 @@ Check that every card contains:
         * Tested that the products type and origin names act as links to the products page and apply a filter to the results shown based upon the category clicked. 
     * Show the products price.
     * The add to cart button and quantity selector appear at the bottom of the card.
-        * Sen that a quantity is shown in the box (default number should be 1).
+        * Seen that a quantity is shown in the box (default number should be 1).
         * Tested that the + and – buttons increase or decrease the number.
             * Checked that + gets disabled at 99.
             * Checked that - gets disabled at 1.
@@ -100,7 +100,7 @@ Check that every card contains:
             * Checked the correct number of items have been added to the cart.
         * Hovered over the buttons to check the hover classes work.
     * Checked that for registered users a heart icon appears in the top right of each card, on top of the image. This indicates that it can be added to / removed from the wishlist.
-        * As a heart outline indicates the item is not on the list I tested that clicking it adds the item to the wishlist and then the icon appeared solid. 
+        * As a heart outline indicates the item is not on the list I tested that clicking it adds the item to the wishlist and then the icon appears solid. 
         * As a solid heart indicates the item is already on the list I tested that clicking it removes the item from the wishlist and the icon is now an outline.
         * Test the hover class works.
         * Checked that the toast message appears confirming whether it’s been added or removed from the list.
@@ -112,7 +112,7 @@ Check that every card contains:
 4. Check the card according to the ***individual product card test** shown in the products test above as the results and functions are similar.
     * Checked that the product description is displayed as well as all the other information specified in the test.
 5. Checked that on screen widths of below 576px the card adapts with the products information now being displayed underneath the products image but still in a card format.
-6. Seen that the appropriate buttons based on the user’s registration status appear below underneath the product information:
+6. Seen that the appropriate buttons based on the user’s registration status appear below, underneath the product information:
     * The Continue Shopping button appears for all users underneath the products card and this takes me back to the Bottle Shop.
     * Check that the edit and delete buttons appear for admin only.
         * Checked the edit product button opens the edit product form.
@@ -144,7 +144,7 @@ Check that every card contains:
             * Checked the free next day delivery banner adjusts (if applicable).
         * Pressed the remove link:
             * Checked that the item is removed from the cart and is no longer displayed. 
-            * Seen the toast message appears confirming the removal.
+            * Seen that the toast message appears confirming the removal.
             * Checked the rest of the cart reacts accordingly.
     * Checked that the subtotal is always displayed.
 6.	Tested that each row is responsive to screen width and the most important information is always displayed.
@@ -155,7 +155,7 @@ Check that every card contains:
 1.	Tested that each page is fully responsive and everything stacks on top of one another at widths below 768px.
 2.	Checked that the order summary section is reflective of the cart page that I’ve just been on.
     * Checked that the order summary title has an item count next to it.
-    * Checked each line item is listed and matches that of that what was in the cart.
+    * Checked that each line item is listed and matches that of what was in the cart.
     * Checked that the subtotal, delivery and total all match too.
 3.	Adjust cart button takes the user back to the cart page if amendments need to be made.
 4.	Checked the form to capture the users details, delivery information and payment details is broken into three sections
@@ -294,7 +294,7 @@ Check that every card contains:
 **Add product:**
 1.	Checked that the form is accessible by admin only.
 2.	Checked that the form is accessible via the link in the navigation bar (admin only).
-3.	Checked the number of fields, 8 in total: name, category, country, abv, size, price, description and image. Check all have a relevant label.
+3.	Checked the number of fields, 8 in total: name, category, country, abv, size, price, description and image. Checked all have a relevant label.
 4.	Tested the buttons:
     * Pressed products, this takes me to the Bottle Shop.
     * Pressed the choose image button and it does as it should.
@@ -381,12 +381,12 @@ I have physically tested my website on the following browsers and devices:
 ### As a shopper I'd like to:
 **"View a selection of products and select those I wish to purchase."**
 * The products page (Bottle Shop) is accessible to all users, registered or not.
-* A link to view products can be found in the navigation bar, which can be seen at all times.
+* Links to view products can be found in the navigation bar, which can be seen at all times.
 * There are a number of call-to-action buttons placed throughout the site directing the user to this page.
 * Any time that a product is displayed, the user always has the option to add the product to the cart if they wish to purchase it. As each product is displayed via a card I have included the add button to every card along with the quantity adjustment buttons.
 
 **"Filter products based on their type or where they originate from."**
-* The products can be filtered by their type or from their country of origin by using the dropdown filter found in the navigation bar, which can be seen at all times. This is shown below.
+* The products can be filtered by their type or by their country of origin using the filters found in the dropdown menu via the navigation bar. This can be seen at all times and is shown below.
 * The options are dynamically generated by using values found in the respective model in the database. This means as the site progresses new beer types and countries can be added and these links will be generated automatically.
 * On each product card the products type, percentage and country of origin is displayed. The product type and the country are also links to a products page that will show all products that are the same type or from the same country.
 
@@ -403,12 +403,12 @@ I have physically tested my website on the following browsers and devices:
 * The search bar can be found in the navigation bar, which can be seen at all times. On smaller devices it toggles using a button with a magnifying glass icon, which makes it apparent to what it is.
 * The search is conducted on all products names, type, country and their description and any matches are shown accordingly.
 * This function was tested using my manual testing plan:
-    * Loads the Bottle Shop pages and displays any product that matches the search.
+    * Loads the Bottle Shop page and displays any product that matches the search.
     * By submitting an empty search a message relaying this appears.
 
 **"Look at individual product details in order to consolidate my decision on whether to purchase the item or not."**
 * Every product has its own page that gives further information on the product. The pages are accessed via the products card, which are seen throughout. The image is the link.
-* Further information gets displayed via a table, which breaks the information up. Not only is this a more aesthetically pleasing way to show the information but the table is also responsive to all breakpoints. This means information is always displayed in a clear and informative manner in keeping with the overall style of the site.
+* Further information gets displayed via a table, which breaks the information up. Not only is this a more aesthetically pleasing way to show the information but the table is also responsive at all breakpoints. This means information is always displayed in a clear and informative manner in keeping with the overall style of the site.
 * Product name, size, type, ABV, origin, description and price are all shown.
 * The product can also be added to the cart from here as the add button along with the quantity adjustment buttons are shown.
 
@@ -422,14 +422,14 @@ I have physically tested my website on the following browsers and devices:
 **"Easily view the carts contents and the number of items within it."**
 * The cart icon found in the navigation bar acts as a direct link to the cart page and as mentioned before the navigation bar is fixed so this link is always visible.
 * If the cart has items within it then a small red badge appears on the cart informing the user of how many items are in the cart as is normal of e-commerce stores.
-* When on the cart page the page is titled My Cart (and the amount of items in the cart appear here) within the brackets.
+* When on the cart page the page is titled My Cart (). The amount of items in the cart appears within the brackets.
 * Whenever a product is added a toast message appears not only confirming the addition but also gives a summary of what’s currently in the cart.
     * The checkout link at the bottom of the toast will send the user to the carts page.
 
 **"Be given the ability to amend the quantity of items within the cart or remove items completely."**
 
-* The only place to amend quantities of an item is on the cart page, which as touched on above is easily to get to due to the link in the fixed navigation bar.
-* Quantities can he amended by using the quantity adjustment buttons used throughout the site but this time a user will have to click on the update link instead of add.
+* The only place to amend quantities of an item is on the cart page, which as touched on above is easy to get to due to the link in the fixed navigation bar.
+* Quantities can be amended by using the quantity adjustment buttons used throughout the site but this time a user will have to click on the update link instead of add.
     * A toast message appears confirming this alteration.
 * Items can be completely removed from the cart by clicking the remove link. The cart page is the only place items can be removed from the cart.
     * A toast message appears confirming the removal.
@@ -439,13 +439,13 @@ I have physically tested my website on the following browsers and devices:
 **"Be rewarded with free delivery if I’m buying a decent amount of products."**
 * There is a banner at the top of the navigation bar stating that the customer gets free delivery on orders over £30.
 * I’ve implemented this into the checkout logic and when an order total goes over this threshold the delivery costs are wiped and are shown as £0.00.
-* Additionally when an item is added a toast message will appear confirming this addition as established. At the bottom of the toast a message is shown stating how much the user needs to spend to qualify for free delivery.
+* Additionally when an item is added a toast message will appear confirming this addition as we've established. At the bottom of this toast a message is shown stating how much the user needs to spend to qualify for free delivery.
 * On the cart page a banner appears on the top of the page above the title telling the user:
     * That they’ve qualified for free delivery.
     * Or if they haven’t, how much more they need to spend to qualify for it.
 
 **"Checkout, pay and complete my order easily."**
-* On the checkout page the order is summarised so that user is shown what they are ordering.
+* On the checkout page the order is summarised so that the user is shown what they are ordering.
     * In cases of a user forgetting something or they have second thoughts about an item then a button to amend the order is conveniently placed under this summary and links back to the cart.
     * There is also a note at the bottom of the page (under the place order button) that confirms the order total.
 * Adding personal, delivery and payment details is done via a user friendly form.
@@ -454,7 +454,7 @@ I have physically tested my website on the following browsers and devices:
 * On successful completion of the order the user is directed to their order confirmation page.
 
 **"Have order confirmation once my order has been completed."**
-* On successful completion of an order the user is automatically directed to order success page. This page confirms and shows all the information that the user has just inputted as part of the order.
+* On successful completion of an order the user is automatically directed to the order success page. This page confirms and shows all the information that the user has just inputted as part of the order.
     * A success toast message also appears confirming successful completion of the order.
 * On top of this an email confirmation is sent out to the email address provided.
     * This has been tested as part of my manual testing.
@@ -464,7 +464,7 @@ I have physically tested my website on the following browsers and devices:
 **"Navigate around the site easily and the site to be user friendly."**
 * I've used a fixed navigation bar so that links are available at the top of every page and at any point.
 * This is also the case on smaller devices but the links get placed into a dropdown menu, which is operational by toggling the hamburger icon / button.
-* I’ve placed call-to-action buttons all over the site (where relevant). These are clear in what they do, have a hover classes to show they can be interacted with and aid with the overall navigation around the site.
+* I’ve placed call-to-action buttons all over the site (where relevant). These are clear in what they do, have hover classes to show they can be interacted with and aid with the overall navigation around the site.
 
 **"Receive feedback whilst interacting with the site."**
 * Toast messages appear in the top right of the screen when information needs to be relayed to the user such as when a function has been performed or something has gone wrong i.e. access being denied. 
@@ -480,24 +480,24 @@ I have physically tested my website on the following browsers and devices:
 * The link to register can be found in the navigation bar by clicking the profile link / icon and selecting it from the dropdown menu.
 * Each input field is clearly labelled.
 * Registering is as simple as inputting an email address, username and password.
-    * For security the password and email address will need to be confirmed.
+    * For security the password and email address will need to be re-typed.
 * A user is clearly informed if the username is in use or if the passwords don’t match.
-* All new registrations will require their email addresses to be verified to confirm the user is who they say they are.
-    * An email asking the user to verify themselves via a link is sent to the email provided.
+* All registrations will require email verification to confirm the user is who they say they are.
+    * An email asking the user to verify themselves via a link is sent to the email address provided.
 
 **"To receive email confirmation of registration and have the ability to recover forgotten passwords."**
 * Email confirmations are sent to verify and confirm registration to The Hop Shop as mentioned above.
 * As I’ve used Django allauth to handle user registration, logging in, logging out and verifying accounts etc it also handles other account functionality such as resetting lost passwords.
-* When the forgot password link is clicked the user is asked to enter an email address and if it matches one that’s associated with a user in the database then they are set a reset link to create a new password.
+* When the forgot password link is clicked the user is asked to enter an email address and if it matches one that’s associated with a user in the database then they are sent a reset link to create a new password.
     * Django allauth handles all this really well and in a very user friendly manner.
 
 **"To login and logout easily."**
 * The link to login can be found in the navigation bar by clicking the profile link / icon and selecting it from the dropdown menu.
 * The logging in process is just as simple as registering with only a username or email address being required along with a password.
-    * Each input field being clearly labelled.
+    * Each input field is clearly labelled.
     * When successfully logged in a success toast will appear welcoming the user.
 * A user is clearly informed if the details provided don’t match.
-* To log out the logout link need to be clicked. This can be found in the navigation bar by clicking the profile link / icon and selecting it from the dropdown menu.
+* To log out the logout link needs to be clicked. This can be found in the navigation bar by clicking the profile link / icon and selecting it from the dropdown menu.
 
 ![Login page.](readme-docs/screenshots/user-stories-screenshot8.jpg)
 
@@ -508,7 +508,7 @@ I have physically tested my website on the following browsers and devices:
     * The order number here also acts as a link to the order confirmation that would have been generated at the time relaying delivery, order and billing details.
     * To stop confusion a toast message appears telling the user that this was a past order.
 * Saved delivery information can be inputted or is shown via a form on the page.
-    * Any information inputted and updated here overrides the users default delivery info where it gets automatically inputted in instances such as checkout.
+    * Any information inputted and updated here overrides the users default delivery information where it is used in instances such as when checking out.
     * The information shown here can get overridden as part of the checkout process if the user selects to save their information via the checkbox.
 
 ![Example of a profile page.](readme-docs/screenshots/user-stories-screenshot9.jpg)
@@ -517,14 +517,14 @@ I have physically tested my website on the following browsers and devices:
 * The wishlist feature can only be used by registered users and is unique just to them.
 * When logged in every product image has a heart displayed in the top right corner and this is how the item gets added and removed (toggled) from the list.
     * A heart outline indicates the item isn’t on the list. Clicking this adds it to the list and turns the heart solid indicating it now on the list.
-    * A solid heart indicates the item is on the list. Clicking this removes it to from list and turns the heart back to an outline indicating it’s no longer on the list.
+    * A solid heart indicates the item is on the list. Clicking this removes it from the list and turns the heart back to an outline indicating it’s no longer on the list.
 * All results are displayed on the wishlist page, which is accessed via the heart icon found in the navigation bar. This is a direct link to the wishlist and as mentioned before the link is always available as the navigation bar is fixed.
-* The wishlist contents are shown as card as is the case throughout the site meaning that the product can be added to the cart from here.
+* The wishlist contents are shown as cards as is the case throughout the site meaning that the product can be added to the cart from here.
 
 **"To read beer related articles as I’m a regular consumer of beer and I’d find a blog interesting."**
 * Added a blog to the site where beer related articles and posts can be made. This adds additional purpose to the site making it not just a shop.
 * Each article is previewed on its own card and can be clicked upon to open the article to read.
-* From a business point these can be structured to promote events, certain products and form an online community.
+* From a business point these posts can be structured to promote events, certain products and form an online community.
 
 ![Blog post.](readme-docs/screenshots/user-stories-screenshot10.jpg)
 
@@ -552,7 +552,7 @@ I have physically tested my website on the following browsers and devices:
 * As with adding products and blog posts, editing and removing them can only be done by admin with access to the relevant forms and functionality restricted.
 * To access the edit and delete function of a product, admin needs to navigate to the product detail page of the item and the relevant call-to-action buttons will be shown under the table as shown below.
 * To access the edit and delete function of a blog post, admin needs to navigate to the blog post in question and the edit and delete buttons will be shown underneath the article.
-* Editing either will take you to the relevant form, which will be pre-populated with the data that’s already been provided.
+* Editing either will take you to the relevant form, which will be pre-populated with the data that’s already been inputted.
     * Form fields are clearly labelled and all data entered is validated the same as when it’s intially added.
 * Deleting anything from the site is a two-step process where confirmation is needed in order to avoid any accidents.
     * Any deletion or update is confirmed by a toast message.

@@ -161,6 +161,82 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 
 ![Coolors - color palette](readme-docs/screenshots/color-palette.jpg)
 
+## Features
+### Page layout
+* Responsive at all breakpoints. By using a combination of media queries, Bootstrap’s responsive grid and built in flexbox capabilities means the sites layout remains consistent while the contents adapt to the device it’s being viewed on.
+* Icons representing the social media links appear in the footer that sticks to the bottom of every page. Each icon is associated with the intended destination and clicking them will send the user there via a new window or tab.
+
+### Navigational
+* A fixed navigation bar means that links to any other section of the website are accessible at any point making for easier navigation.
+* The logo has a secondary feature as a link back to the home page. All other links are where a user would expect to find them making for good UX.
+* The menu button on smaller screen widths features Font Awesome’s icon “fa-bars”, which is associated with this dropdown menu function.
+* The search bar is always accessible in the navigation bar. The button used to toggle it on smaller screen sizes is shown as a magnifying glass, which is widely associated with a search feature.
+* The number of items (if any) in a customer’s cart is displayed as a counter on the cart icon. This is so customers can keep an eye on the number of items they’re purchasing. 
+* Links to product pages will take users to the Bottle Shop while applying a filter, showing them only what they wanted to see.
+
+### Buttons and links
+* Call-to-action buttons are used throughout the site to engage with the user and point them to relevant pages of the site or to perform certain tasks.
+* Buttons will invert colour when hovered showing the user it is clickable in order to get them to engage with them.
+* All buttons are clear and obvious in what they do and function as expected.
+* I’ve put hover classes on the navigation links and social media links to also encourage interaction.
+* Buttons used to increase or decrease quantities get disabled outside the 1-99 range so that only these quantities can be added to the cart, making for good user experience.
+
+### Toasts, modals and error pages
+* Toasts are used throughout to relay information back to the user. These could be anything from welcoming a user when logging in, telling them their cart has been amended or confirming their purchase.
+* The toasts also enhance UI by providing a customer a preview of their cart, telling them how much more they need to spend to qualify for free delivery and links them to the cart via a button.
+* Deletion of anything on the site is a 2 step process with a user having to confirm they wish to delete an object via a model so accidental deletions can't happen.
+* An error page will display in the instances where a 404 or 500 error occurs. Not that this will be a regular occurrence but if this situation arises the user will be provided with a link back to the home page.
+
+### Home
+* A hero image fills the majority of the page when it first loads. I’ve used a hero image as I believe it sets the tone by giving a professional and modern feel.
+* A call-to-action button aimed at directing traffic towards the Bottle Shop page is layered over this image.
+* In order to try and entice potential customers in I’ve displayed the latest products via cards on the home page to show them what’s new!
+
+### Products, product pages and wishlist.
+* Results shown in the Bottle Shop are done according to how the user has selected them to sorted or filtered. 
+    * Filters can be applied through the navigation bar and by links on product cards.
+    * Results also can be sorted by numerous options by using the dropdown filter at the top of the Bottle Shop page. This helps users find what they want as quickly as possible.
+* Products are shown as cards when numerous results are being shown. I felt this was the best way to display this amount of information without overwhelming a user. 
+* Individual product pages show all the information the cards do plus a product description in a clear and concise manner.
+* To make life easier anytime a product is shown throughout the site the functionality to add it to the cart is available. This can be done using the quantity selector buttons along with the add button on all product cards.
+* The product type and the country also act as links and show the user all items of that match that type/origin.
+* Items can be added and removed to a wishlist by a registered user by toggling the heart icon on the image. This is to encourage users to build a list of beers they’d like to try and get them to return and order them at a later date.
+
+### The checkout process
+* The delivery banner that’s displayed at the top of the cart page informs the user how much more they need to spend in order to get free delivery. This may nudge customers towards ordering a couple more bottles in order to qualify.
+* Quantities of items can be adjusted in the cart by using the quantity selector buttons along with the update and remove links.
+* All information in the cart, checkout and checkout confirmation pages is shown in intuitive way prioritising information that is most important.
+* Totals are shown in a clear and obvious manner; these are updated as the cart gets amended.
+* On the checkout page we get a summary of all the items we’re about to purchase. A call-to-action button is placed underneath this in case of any last minute revisions.
+* The checkout form gets pre-populated if default information has been saved in the user’s profile. This will speed up the checkout process.
+* This information can be altered when submitting a new order by checking the checkbox.
+* When the order is placed an overlay appears on the screen to indicate that the order is being processed. Not only does this show that something is happening but stops the user from altering the form whilst it’s being processed. It also makes the transaction and site look professional. 
+* An email confirmation of an order is sent to the email address given at the time of order, so the user has receipt of the purchase and a record of the information given.
+
+### Blog and individual blog posts
+* All blogs posts are shown in order of the date they were posted, with the most recent first.
+* Each card contains a preview of each post and a call-to-action button to encourage the user to click and read the article.
+* Each article has its own page. The page is highly responsive to screen width as things such as blogs and articles tend to be read on tablets and phones.
+* Comments on the posts are visible for all to see at the bottom of every article.
+* Registered users can post on articles; this functionality was built in to encourage interaction between users and give them a platform to voice their opinions and thoughts.
+
+### Profile
+* Every user is assigned a profile page on registration.
+* Order history will appear on this page. From here a user will be able to access any old order confirmation that was generated at the time of order by clicking the order number as it acts a link.
+* To speed up the checkout process for returning customers a default delivery address can be added via a form here. This will pre-populate the checkout form with the default address when buying goods.
+
+### Adding, editing and removing
+* Only admin can add, edit and delete products or blog posts.
+* Inputs on forms are labelled and have placeholders so it’s clear what goes into each field.
+* Some fields are required in order to submit a form, validation messages will appear to help with input (if needed).
+* Inputted data is validated so forms will only accept data how we’d like it. The better the data inputted into the database the better the end result will be when it’s displayed throughout the site.
+
+### Features left to implement
+* I would like to introduce an age verification modal when the page is first loaded. I would like the user to verify that they are older than 18 years old by entering their date of birth in order to continue onto the site.
+* I’d like to add the functionality that allows users to delete their comments off blog posts from the UI. I’d also add functionality so admin users can remove any comment off blog posts regardless of who posted it.
+* Introduce some pagination onto the pages where large numbers of products could be displayed. As the site grows more and more products will be added so this would help to keep the site user-friendly and help make navigation around easier.
+* I’d like to have a “You May Like…” section at the bottom of the individual product pages. Similar to the “New In…” section on the home page this section would recommend and link to other products that are similar to one being viewed. 
+
 ## Database
 
 ![Database schema](readme-docs/screenshots/db-diagram.png)
@@ -425,7 +501,7 @@ os.environ.setdefault(“STRIPE_WH_SECRET”, “<key from individual webhook>�
 ## Credits
 ### Code
 * I used the Boutique Ado e-commerce store project that is part of the course content as a guide as I built my site. Many of the apps, models and functionality’s have been taken from this walkthrough and adapted to suit my needs.
-* I watched the following video's about creating e-commerce stores on youTube to enhance my knowledge after completing the Boutique Ado walkthrough:
+* I watched the following video's about creating e-commerce stores on YouTube to enhance my knowledge after completing the Boutique Ado walkthrough:
     * [Corey Schafer.](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
     * [Dennis Ivy.](https://www.youtube.com/watch?app=desktop&v=_ELCMngbM0E)
 * This [Stack Overflow post](https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340) helped me integrate google fonts into Stripe in the stripe_elements.js file.
