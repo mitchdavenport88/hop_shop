@@ -16,7 +16,7 @@ GitHub repository can be viewed here - [mitchdavenport88/hop_shop](https://githu
 ### Strategy
 The aim is to create a user-friendly e-commerce store based around controlling a centrally owned dataset, which I will be building. As an e-commerce store the site will be based around the business logic of being able to browse and select items to buy then finally completing the transaction and taking a payment.
 
-Users should be able to view products in the store both individually and collectively. They should be shown in an appropriate and clear way, with any user having the ability to filter or search for items by using pre-determined filters or keywords. Items will be able to be added and removed from a shopping cart and then finally paid for. Any user should be able to complete a transaction easily on The Hop Shop but users will be encouraged to register in order to have access to their own profile where order history is stored and default delivery information can be saved. The ability to use a wishlist function will also only be given to registered users as well as the ability to comment on The Hop Shops blog posts. In addition to this the store owner (admin) should be able to add, edit and remove both products and blog posts conveniently from the frontend.
+Users should be able to view products in the store both individually and collectively. They should be shown in an appropriate and clear way, with any user having the ability to filter or search for items by using pre-determined filters or keywords. Items will be able to be added and removed from a shopping cart and then finally paid for. Any user should be able to complete a transaction easily on The Hop Shop but users will be encouraged to register in order to have access to their own profile where order history is stored and default delivery information can be saved. The ability to use a wishlist function will also only be given to registered users as well as the ability to comment on The Hop Shops blog posts. In addition to all this the store owner (admin) should be able to add, edit and remove both products and blog posts conveniently from the frontend.
 
 ### User Stories
 As a shopper I'd like to:
@@ -60,7 +60,7 @@ As the site owner / admin I want:
 * Items must be able to be added to a cart. The items in the cart can be removable or the quantities selected amendable.
 * A user must be able to complete the checkout process easily from cart through to order completion.
     * Methods of data input must be clear and inputted data must get validated.
-    * The site will need to relay information back to the user when required or suitable in an appropriate manner.
+    * The site will need to relay information back to the user when required or when suitable and do so in an appropriate manner.
     * A payment and the order must be taken.
 * Allow users to login, logout and register.
     * Restrictions will need to be placed on what unregistered users can see and use.
@@ -69,7 +69,7 @@ As the site owner / admin I want:
     * Registered users could communicate with one another via comments.
 * A wishlist function would also engage with registered users as they can select products that they’d like to purchase at a later date, this could encourage repeat business.
 * CRUD functionality for products and blog articles (admin only).
-* We want the user to remain engaged throughout use so must be user-friendly and easy to navigate around.
+* We want the user to remain engaged throughout use so the site must be user-friendly and easy to navigate around.
 * Function as expected:
     * Fully responsive on all devices.
     * Links or buttons take you to the expected place or complete the expected task.
@@ -163,7 +163,7 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 
 ## Features
 ### Page layout
-* Responsive at all breakpoints. By using a combination of media queries, Bootstrap’s responsive grid and built in flexbox capabilities means the sites layout remains consistent while the contents adapt to the device it’s being viewed on.
+* Responsive at all breakpoints. By using a combination of media queries, Bootstrap’s responsive grid and built in flexbox capabilities means the sites layout remains consistent while the content adapts to the device it’s being viewed on.
 * Icons representing the social media links appear in the footer that sticks to the bottom of every page. Each icon is associated with the intended destination and clicking them will send the user there via a new window or tab.
 
 ### Navigational
@@ -172,35 +172,35 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 * The menu button on smaller screen widths features Font Awesome’s icon “fa-bars”, which is associated with this dropdown menu function.
 * The search bar is always accessible in the navigation bar. The button used to toggle it on smaller screen sizes is shown as a magnifying glass, which is widely associated with a search feature.
 * The number of items (if any) in a customer’s cart is displayed as a counter on the cart icon. This is so customers can keep an eye on the number of items they’re purchasing. 
-* Links to product pages will take users to the Bottle Shop while applying a filter, showing them only what they wanted to see.
+* Links to product pages will take users to the Bottle Shop while applying a filter, showing them only what they selected to see.
 
 ### Buttons and links
 * Call-to-action buttons are used throughout the site to engage with the user and point them to relevant pages of the site or to perform certain tasks.
 * Buttons will invert colour when hovered showing the user it is clickable in order to get them to engage with them.
 * All buttons are clear and obvious in what they do and function as expected.
 * I’ve put hover classes on the navigation links and social media links to also encourage interaction.
-* Buttons used to increase or decrease quantities get disabled outside the 1-99 range so that only these quantities can be added to the cart, making for good user experience.
+* If buttons are used to increase or decrease quantities throughout the site then these get disabled when the value shown is outside the 1-99 range, this makes for good user experience.
 
 ### Toasts, modals and error pages
 * Toasts are used throughout to relay information back to the user. These could be anything from welcoming a user when logging in, telling them their cart has been amended or confirming their purchase.
 * The toasts also enhance UI by providing a customer a preview of their cart, telling them how much more they need to spend to qualify for free delivery and links them to the cart via a button.
-* Deletion of anything on the site is a 2 step process with a user having to confirm they wish to delete an object via a model so accidental deletions can't happen.
+* Deletion of anything on the site is a 2 step process with admin having to confirm they wish to delete an object via a modal so accidental deletions can't happen.
 * An error page will display in the instances where a 404 or 500 error occurs. Not that this will be a regular occurrence but if this situation arises the user will be provided with a link back to the home page.
 
 ### Home
 * A hero image fills the majority of the page when it first loads. I’ve used a hero image as I believe it sets the tone by giving a professional and modern feel.
 * A call-to-action button aimed at directing traffic towards the Bottle Shop page is layered over this image.
-* In order to try and entice potential customers in I’ve displayed the latest products via cards on the home page to show them what’s new!
+* In order to try and entice potential customers in I’ve also displayed the latest products via cards on the home page to show them what’s new!
 
 ### Products, product pages and wishlist.
-* Results shown in the Bottle Shop are done according to how the user has selected them to sorted or filtered. 
+* Results shown in the Bottle Shop are done according to how the user has selected them to be sorted or filtered. 
     * Filters can be applied through the navigation bar and by links on product cards.
     * Results also can be sorted by numerous options by using the dropdown filter at the top of the Bottle Shop page. This helps users find what they want as quickly as possible.
 * Products are shown as cards when numerous results are being shown. I felt this was the best way to display this amount of information without overwhelming a user. 
 * Individual product pages show all the information the cards do plus a product description in a clear and concise manner.
 * To make life easier anytime a product is shown throughout the site the functionality to add it to the cart is available. This can be done using the quantity selector buttons along with the add button on all product cards.
 * The product type and the country also act as links and show the user all items of that match that type/origin.
-* Items can be added and removed to a wishlist by a registered user by toggling the heart icon on the image. This is to encourage users to build a list of beers they’d like to try and get them to return and order them at a later date.
+* Items can be added and removed to a wishlist by registered users by toggling the heart icon on the image. This is to encourage users to build a list of beers they’d like to try and get them to return and order them at a later date.
 
 ### The checkout process
 * The delivery banner that’s displayed at the top of the cart page informs the user how much more they need to spend in order to get free delivery. This may nudge customers towards ordering a couple more bottles in order to qualify.
@@ -208,8 +208,8 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 * All information in the cart, checkout and checkout confirmation pages is shown in intuitive way prioritising information that is most important.
 * Totals are shown in a clear and obvious manner; these are updated as the cart gets amended.
 * On the checkout page we get a summary of all the items we’re about to purchase. A call-to-action button is placed underneath this in case of any last minute revisions.
-* The checkout form gets pre-populated if default information has been saved in the user’s profile. This will speed up the checkout process.
-* This information can be altered when submitting a new order by checking the checkbox.
+* The checkout form gets pre-populated if default information has been saved to the user’s profile. This will speed up the checkout process for returning users.
+* The option to change this information is given when checking out a new order. The customer has the option to override existing information by ticking the checkbox on the form.
 * When the order is placed an overlay appears on the screen to indicate that the order is being processed. Not only does this show that something is happening but stops the user from altering the form whilst it’s being processed. It also makes the transaction and site look professional. 
 * An email confirmation of an order is sent to the email address given at the time of order, so the user has receipt of the purchase and a record of the information given.
 
@@ -228,7 +228,7 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 ### Adding, editing and removing
 * Only admin can add, edit and delete products or blog posts.
 * Inputs on forms are labelled and have placeholders so it’s clear what goes into each field.
-* Some fields are required in order to submit a form, validation messages will appear to help with input (if needed).
+* Some fields are required in order to submit a form, validation messages will appear to help with input if needed.
 * Inputted data is validated so forms will only accept data how we’d like it. The better the data inputted into the database the better the end result will be when it’s displayed throughout the site.
 
 ### Features left to implement
@@ -261,7 +261,7 @@ I found a suitable colour palette using [Coolors](https://coolors.co/). The sche
 * [Heroku.](https://heroku.com/) Used to host my site.
 * [AWS S3 Bucket.](https://aws.amazon.com/) Cloud storage for media and static files used by Heroku.
 * [Stripe.](https://stripe.com/gb) Online payment processing for internet businesses used to receive payments.
-* [Gmail.]() I've hooked my deployed site up to Gmail's smtp server in order to send emails. 
+* [Gmail.](https://en.wikipedia.org/wiki/Gmail) I've hooked my deployed site up to Gmail's smtp server in order to send emails. 
 * [Font Awesome.](https://fontawesome.com/) Adds icons throughout the site to increase UX.
 * [Bootstrap.](https://getbootstrap.com/) Grid layout, responsive design and basic styling.
 * [Google fonts.](https://fonts.google.com/specimen/Rubik) Montserrat was imported and used throughout.
@@ -286,7 +286,7 @@ This project is hosted by Heroku but is still deployed from the master branch of
 2. Created a new app by clicking **create new app** from the drop down menu labelled "new".
 3. Gave my app a name and selected the region from the dropdown menu that was closest geographically. 
 4. Clicked the **create app** button where I was directed to the dashboard for the new app.
-5. Clicked on the **resources** tab on the dashboard. Added Heroku Postgres to the app by searching and then selecting it. Then I selected the Hobby Dev – Free plan.
+5. Clicked on the **resources** tab on the dashboard. Added Heroku Postgres to the app by searching and then selecting it. I then selected the Hobby Dev – Free plan.
 6. As I didn't use fixtures to populate my development database I now created three json files, which act as fixtures and will help transfer the data across to the Postgres database.
     * `python3 manage.py dumpdata products.Category > categories.json`
     * `python3 manage.py dumpdata products.Country > countries.json`
@@ -509,9 +509,9 @@ os.environ.setdefault(“STRIPE_WH_SECRET”, “<key from individual webhook>�
 * I followed these two articles by [Django Central](https://djangocentral.com/) and this video by [Codemy.com](https://www.youtube.com/watch?v=hZrlh4qU4eQ) when setting up my blog and comments section. I made changes where I saw fit to suit my requirements and also added to the code:
     * [Blog.](https://djangocentral.com/building-a-blog-application-with-django/)
     * [Blog comments.](https://djangocentral.com/creating-comments-system-with-django/)
-* I found out about the linebreaksbr functionality used in the blog posts [here.](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#linebreaksbr)
+* I found out about the `linebreaksbr` functionality used in the blog posts [here.](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#linebreaksbr)
 * I resolved an issue causing a 500 internal server error being made by the function in my products model that resizes images if required by reading this [Stack Overflow post.](https://stackoverflow.com/questions/18215989/resize-thumbnails-django-heroku-backend-doesnt-support-absolute-paths)
-* I made the wishlist view by following a walkthrough by [Very Academy.](https://www.youtube.com/watch?v=OgA0TTKAtqQ&t=2403s) I made changes where I saw fit to suit my requirements and also added to the code.
+* I made the wishlist view after following a walkthrough by [Very Academy.](https://www.youtube.com/watch?v=OgA0TTKAtqQ&t=2403s) I made changes where I saw fit to suit my requirements and also added to the code.
 * I used the following documentation throughout:
     * [Django docs.](https://docs.djangoproject.com/en/3.2/)
     * [Allauth docs.](https://django-allauth.readthedocs.io/en/latest/index.html)
